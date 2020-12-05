@@ -42,13 +42,13 @@ const internalSources = [
   {"code": "All_Assets_InvestPFM", "name": "Всего средств"},
 ];
 
-let state = {
-  platformLink: platform.ios.base,
-  marketplace: marketplace[0].code,
-  internal: internalSources[1].code,
-  external: externalSources[0].code,
-  link: ""
-}
+class App extends React.Component {
+  state = {
+    platformLink: platform["android-prom"].base,
+    marketplace: marketplace[0].code,
+    internal: internalSources[0].code,
+    external: externalSources[0].code
+  };
 
   getLink = () => {
     let link = this.state.platformLink + "?marketPlaceId=" + this.state.marketplace;
@@ -69,61 +69,71 @@ let state = {
     document.getElementById("debug").innerText = this.getLink();
   };
 
-let App = React.createElement({
-  getInitialState: function() {
-    return {
-      platformLink: "test",
-      marketplace: ""
-    };
-  },
-  onPlatformChanged: function (e) {
-    this.setState({platformLink: e.currentTarget.value});
-    // document.writeln(state.platformLink);
-  },
-  onMplaceChanged: function (e) {
-    this.setState({marketplace: e.currentTarget.value});
-  },
-  render: function () {
-    return (
-        <div className="App">
-          <div>{this.state.platformLink}?marketPlaceId={this.state.marketplace}</div>
-          <input className="App-input" value={this.state.platformLink}/>
-          {/*<button value={platform["android-test"].name} title="ddddddd"/>*/}
-          <select name="platormSelect" value={this.state.platformLink} onChange={this.onPlatformChanged}>
-            {Object.keys(platform).map((k) => {
-              return <option value={platform[k].base}>{platform[k].name}</option>;
-            })}
-          </select>
-          {marketplace.map((k) => {
-            return (
-                <div className="App-mplace">
-                  <input type="radio" name="marketplace"
-                         value={k.code}
-                         checked={this.state.marketplace === k.code}
-                         onChange={this.onMplaceChanged}
-                  />
-                  <label>{k.name}</label>
-                </div>
-            );
-          })}
+  onInternalChanged = (e) => {
+    this.setState({internal: e.currentTarget.value});
+  };
 
-          {/*<header className="App-header">*/}
-          {/*  <img src={logo} className="App-logo" alt="logo" />*/}
-          {/*  <p>*/}
-          {/*    Edit <code>src/App.js</code> and save to reload*/}
-          {/*  </p>*/}
-          {/*  <a*/}
-          {/*    className="App-link"*/}
-          {/*    href="https://reactjs.org"*/}
-          {/*    target="_blank"*/}
-          {/*    rel="noopener noreferrer"*/}
-          {/*  >*/}
-          {/*    Learn React*/}
-          {/*  </a>*/}
-          {/*</header>*/}
-        </div>
-    );
-  }
-});
+  onExternalChanged = (e) => {
+    this.setState({external: e.currentTarget.value});
+  };
+
+  render() {
+  return (
+    <div className="App">
+      <div><a href={this.getLink()} rel="alternate">{this.getLink()}</a></div>
+        {Object.keys(platform).map((k) => {
+          let code = platform[k].base;
+          let name = platform[k].name;
+          return (
+              <div className="App-select">
+                <input type="radio" name="platform"
+                       value={code}
+                       onChange={this.onPlatformChanged}
+                       checked={this.state.platformLink === code}
+                />
+                <label>{name}</label>
+              </div>
+          );
+          // return <option value={platform[k].base}>{platform[k].name}</option>;
+        })}
+      {marketplace.map((k) => {
+        return (
+            <div className="App-mplace">
+              <input type="radio" name="marketplace"
+                     value={k.code}
+                     onChange={this.onMplaceChanged}
+                     checked={this.state.marketplace === k.code}
+              />
+              <label>{k.name}</label>
+            </div>
+        );
+      })}
+      {internalSources.map((k) => {
+        return (
+            <div className="App-internal">
+              <input type="radio" name="internal"
+                     value={k.code}
+                     onChange={this.onInternalChanged}
+                     checked={this.state.internal === k.code}
+              />
+              <label>{k.name}</label>
+            </div>
+        );
+      })}
+      {externalSources.map((k) => {
+        return (
+            <div className="App-external">
+              <input type="radio" name="external"
+                     value={k.code}
+                     onChange={this.onExternalChanged}
+                     checked={this.state.external === k.code}
+              />
+              <label>{k.name}</label>
+            </div>
+        );
+      })}
+    </div>
+  );}
+}
 
 export default App;
