@@ -38,57 +38,61 @@ const internalSources = [
 ];
 
 
-function App() {
-  let state = {
-    platformLink: "test",
-    marketplace: ""
-  }
-  let onPlatformChanged = function (e) {
-    state.platformLink = e.currentTarget.value;
+let App = React.createElement({
+  getInitialState: function() {
+    return {
+      platformLink: "test",
+      marketplace: ""
+    };
+  },
+  onPlatformChanged: function (e) {
+    this.setState({platformLink: e.currentTarget.value});
     // document.writeln(state.platformLink);
-  }
-  let  onMplaceChanged = function (e) {
-    state.marketplace = e.currentTarget.value;
-  }
-  return (
-    <div className="App">
-      <div>{state.platformLink}?marketPlaceId={state.marketplace}</div>
-      <input className="App-input" value={state.platformLink}/>
-      {/*<button value={platform["android-test"].name} title="ddddddd"/>*/}
-      <select name="platormSelect" value={state.platformLink} onChange={onPlatformChanged}>
-        {Object.keys(platform).map((k) => {
-          return <option value={platform[k].base}>{platform[k].name}</option>;
-        })}
-      </select>
-      {marketplace.map((k) => {
-        return (
-            <div className="App-mplace">
-              <input type="radio" name="marketplace"
-                     value={k.code}
-                     checked={state.marketplace === k.code}
-                     onChange={onMplaceChanged}
-              />
-              <label>{k.name}</label>
-            </div>
-        );
-      })}
+  },
+  onMplaceChanged: function (e) {
+    this.setState({marketplace: e.currentTarget.value});
+  },
+  render: function () {
+    return (
+        <div className="App">
+          <div>{this.state.platformLink}?marketPlaceId={this.state.marketplace}</div>
+          <input className="App-input" value={this.state.platformLink}/>
+          {/*<button value={platform["android-test"].name} title="ddddddd"/>*/}
+          <select name="platormSelect" value={this.state.platformLink} onChange={this.onPlatformChanged}>
+            {Object.keys(platform).map((k) => {
+              return <option value={platform[k].base}>{platform[k].name}</option>;
+            })}
+          </select>
+          {marketplace.map((k) => {
+            return (
+                <div className="App-mplace">
+                  <input type="radio" name="marketplace"
+                         value={k.code}
+                         checked={this.state.marketplace === k.code}
+                         onChange={this.onMplaceChanged}
+                  />
+                  <label>{k.name}</label>
+                </div>
+            );
+          })}
 
-      {/*<header className="App-header">*/}
-      {/*  <img src={logo} className="App-logo" alt="logo" />*/}
-      {/*  <p>*/}
-      {/*    Edit <code>src/App.js</code> and save to reload*/}
-      {/*  </p>*/}
-      {/*  <a*/}
-      {/*    className="App-link"*/}
-      {/*    href="https://reactjs.org"*/}
-      {/*    target="_blank"*/}
-      {/*    rel="noopener noreferrer"*/}
-      {/*  >*/}
-      {/*    Learn React*/}
-      {/*  </a>*/}
-      {/*</header>*/}
-    </div>
-  );
-}
+          {/*<header className="App-header">*/}
+          {/*  <img src={logo} className="App-logo" alt="logo" />*/}
+          {/*  <p>*/}
+          {/*    Edit <code>src/App.js</code> and save to reload*/}
+          {/*  </p>*/}
+          {/*  <a*/}
+          {/*    className="App-link"*/}
+          {/*    href="https://reactjs.org"*/}
+          {/*    target="_blank"*/}
+          {/*    rel="noopener noreferrer"*/}
+          {/*  >*/}
+          {/*    Learn React*/}
+          {/*  </a>*/}
+          {/*</header>*/}
+        </div>
+    );
+  }
+});
 
 export default App;
