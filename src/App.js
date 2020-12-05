@@ -1,20 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 
-const platform = [
-  {
+const platform = {
+  "android-prom": {
     "name": "Android ПРОМ",
     "base": "android-app://ru.sberbankmobile/android-app/ru.sberbankmobile/pfm/marketplace?marketPlaceId=investmentsCatalog"
   },
-  {
+  "android-test": {
     "name": "Android ТЕСТ",
     "base": "android-app://ru.sberbankmobile_alpha/android-app/ru.sberbankmobile_alpha/pfm/marketplace?marketPlaceId=investmentsCatalog"
   },
-  {
+  "ios": {
     "name": "iOS",
     "base": "sberbankonline://pfm/marketplace?marketPlaceId=investmentsCatalog"
   }
-];
+};
 
 const marketplace = [
   "investmentsCatalog:Основная витрина инвестиций",
@@ -44,11 +44,11 @@ function App() {
   }
   return (
     <div className="App">
-      <input className="App-input"/>
-      {/*<button value={platform["android-test"].name} title="ddddddd"/>*/}
+      <input className="App-input" value={state.platform}/>
+      <button value={platform["android-test"].name} title="ddddddd"/>
       <select name="platormSelect" value={state.platform}>
-        {platform.map((e, key) => {
-          return <option value={e.base}>{e.name}</option>;
+        {Object.keys(platform).map((k) => {
+          return <option value={platform[k].base}>{platform[k].name}</option>;
         })}
       </select>
       {/*<header className="App-header">*/}
