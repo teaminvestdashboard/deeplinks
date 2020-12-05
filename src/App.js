@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
 
@@ -24,7 +23,7 @@ const marketplace = [
 ];
 
 const externalSources = [
-  {"code": "", "name": ""},
+  {"code": "", "name": "Внутренний"},
   {"code": "push", "name": "Push"},
   {"code": "email", "name": "E-mail"},
   {"code": "sms", "name": "SMS"},
@@ -33,24 +32,32 @@ const externalSources = [
 ];
 
 const internalSources = [
-  {"code": "", "name": ""},
+  {"code": "", "name": "Внешний переход "},
   {"code": "plus", "name": "Плюс на главной"}
 ];
 
 let state = {
   platformLink: platform.ios.base,
   marketplace: marketplace[0].code,
+  internal: internalSources[1].code,
+  external: externalSources[0].code,
   link: ""
 }
 
 let getLink = function() {
-  return state.platformLink + "?marketPlaceId=" +state.marketplace;
+  let link = state.platformLink + "?marketPlaceId=" +state.marketplace;
+  if(state.internal !== "")
+    link = link + "&internal_source=" + state.internal;
+  if(state.external !== "")
+    link = link + "&external_source=" + state.external;
+  return link;
 }
 
 let onPlatformChanged = function (e) {
   state.platformLink = e.currentTarget.value;
   document.getElementById("debug").innerText = getLink();
 }
+
 let  onMplaceChanged = function (e) {
   state.marketplace = e.currentTarget.value;
   document.getElementById("debug").innerText = getLink();
