@@ -44,24 +44,24 @@ let state = {
   link: ""
 }
 
-let getLink = function() {
-  let link = state.platformLink + "?marketPlaceId=" +state.marketplace;
-  if(state.internal !== "")
-    link = link + "&internal_source=" + state.internal;
-  if(state.external !== "")
-    link = link + "&external_source=" + state.external;
-  return link;
-}
+  getLink = () => {
+    let link = this.state.platformLink + "?marketPlaceId=" + this.state.marketplace;
+    if(this.state.internal !== "")
+      link = link + "&internal_source=" + this.state.internal;
+    if(this.state.external !== "")
+      link = link + "&external_source=" + this.state.external;
+    return link;
+  };
 
-let onPlatformChanged = function (e) {
-  state.platformLink = e.currentTarget.value;
-  document.getElementById("debug").innerText = getLink();
-}
+  onPlatformChanged = (e) => {
+    this.setState({platformLink: e.currentTarget.value});
+    document.getElementById("debug").innerText = this.getLink();
+  };
 
-let  onMplaceChanged = function (e) {
-  state.marketplace = e.currentTarget.value;
-  document.getElementById("debug").innerText = getLink();
-}
+  onMplaceChanged = (e) => {
+    this.setState({marketplace: e.currentTarget.value});
+    document.getElementById("debug").innerText = this.getLink();
+  };
 
 let App = React.createElement({
   getInitialState: function() {
