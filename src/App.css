@@ -1,5 +1,15 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
+  padding: 20px;
+  background: azure;
+}
+
+.App-cell {
+  alignment: top;
+  padding: 20px;
+}
+
+.App-select {
 }
 
 .App-logo {
