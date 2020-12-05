@@ -81,12 +81,11 @@ class App extends React.Component {
   render() {
     return (
         <div className="App">
-          <div><a href={this.getLink()} rel="alternate">{this.getLink()}</a></div>
+          <div className="App-link"><a href={this.getLink()} rel="alternate">{this.getLink()}</a></div>
           <table>
             <tbody>
             <tr>
-              <td colSpan="4">
-              </td>
+              <th>Платформа</th><th>Витрина</th><th>Внутренняя точка перехода</th><th>Рассылка</th>
             </tr>
             <tr>
               <td className="App-cell">
