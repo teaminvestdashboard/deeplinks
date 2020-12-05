@@ -37,6 +37,24 @@ const internalSources = [
   {"code": "plus", "name": "Плюс на главной"}
 ];
 
+let state = {
+  platformLink: platform.ios.base,
+  marketplace: marketplace[0].code,
+  link: ""
+}
+
+let getLink = function() {
+  return state.platformLink + "?marketPlaceId=" +state.marketplace;
+}
+
+let onPlatformChanged = function (e) {
+  state.platformLink = e.currentTarget.value;
+  document.getElementById("debug").innerText = getLink();
+}
+let  onMplaceChanged = function (e) {
+  state.marketplace = e.currentTarget.value;
+  document.getElementById("debug").innerText = getLink();
+}
 
 let App = React.createElement({
   getInitialState: function() {
