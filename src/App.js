@@ -78,18 +78,6 @@ class App extends React.Component {
     this.setState({external: e.currentTarget.value});
   };
 
-  onLabelSelected = (e) => {
-    let input = e.target.parentElement.children[0];
-    let name = input.name;
-    let value = input.value;
-    for(let i=0; i<document.getElementsByName(name).length; i++) {
-      document.getElementsByName(name)[i].checked = document.getElementsByName(name)[i].value === value;
-    }
-    // this.setState({ debug: e.currentTarget.parent });
-    // document.getElementById("debug").innerText = e.target.parentElement.children[0].value;
-    // document.getElementById("debug").innerText = document.getElementsByName(name).;
-  }
-
   render() {
     return (
         <div className="App">
@@ -105,14 +93,15 @@ class App extends React.Component {
                 {Object.keys(platform).map((k) => {
                   let code = platform[k].base;
                   let name = platform[k].name;
+                  let id = "platform" + code;
                   return (
                       <div className="App-select">
-                        <input type="radio" name="platform"
+                        <input type="radio" name="platform" id={id}
                                value={code}
                                onChange={this.onPlatformChanged}
                                checked={this.state.platformLink === code}
                         />
-                        <label>{name}</label>
+                        <label for={id}>{name}</label>
                       </div>
                   );
                   // return <option value={platform[k].base}>{platform[k].name}</option>;
@@ -136,28 +125,30 @@ class App extends React.Component {
               </td>
               <td className="App-cell">
                 {internalSources.map((k) => {
+                  let id = "internal" + k.code;
                   return (
                       <div className="App-select">
-                        <input type="radio" name="internal"
+                        <input type="radio" name="internal" id={id}
                                value={k.code}
                                onChange={this.onInternalChanged}
                                checked={this.state.internal === k.code}
                         />
-                        <label>{k.name}</label>
+                        <label for={id}>{k.name}</label>
                       </div>
                   );
                 })}
               </td>
               <td className="App-cell">
                 {externalSources.map((k) => {
+                  let id = "external" + k.code;
                   return (
                       <div className="App-select">
-                        <input type="radio" name="external"
+                        <input type="radio" name="external" id={id}
                                value={k.code}
                                onChange={this.onExternalChanged}
                                checked={this.state.external === k.code}
                         />
-                        <label onClick={this.onLabelSelected}>{k.name}</label>
+                        <label for={id}>{k.name}</label>
                       </div>
                   );
                 })}
