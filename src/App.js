@@ -1,56 +1,78 @@
 import logo from './logo.svg';
 import './App.css';
+import React from "react";
 
 const platform = {
   "android-prom": {
     "name": "Android ПРОМ",
-    "base": "android-app://ru.sberbankmobile/android-app/ru.sberbankmobile/pfm/marketplace?marketPlaceId=investmentsCatalog"
+    "base": "android-app://ru.sberbankmobile/android-app/ru.sberbankmobile/pfm/marketplace"
   },
   "android-test": {
     "name": "Android ТЕСТ",
-    "base": "android-app://ru.sberbankmobile_alpha/android-app/ru.sberbankmobile_alpha/pfm/marketplace?marketPlaceId=investmentsCatalog"
+    "base": "android-app://ru.sberbankmobile_alpha/android-app/ru.sberbankmobile_alpha/pfm/marketplace"
   },
   "ios": {
     "name": "iOS",
-    "base": "sberbankonline://pfm/marketplace?marketPlaceId=investmentsCatalog"
+    "base": "sberbankonline://pfm/marketplace"
   }
 };
 
 const marketplace = [
-  "investmentsCatalog:Основная витрина инвестиций",
-  "PIFCatalog:Витрина категории ПИФ",
-  "IIS_products:Витрина ИИС с продуктами",
+  {"code": "investmentsCatalog", "name": "Основная витрина инвестиций"},
+  {"code": "PIFCatalog", "name": "Витрина категории ПИФ"},
+  {"code": "IIS_products", "name": "Витрина ИИС с продуктами"}
 ];
 
 const externalSources = [
-  ":",
-  "push:Push",
-  "email:E-mail",
-  "sms:SMS",
-  "marketplace:Каталог",
-  "search:Поиск"
+  {"code": "", "name": ""},
+  {"code": "push", "name": "Push"},
+  {"code": "email", "name": "E-mail"},
+  {"code": "sms", "name": "SMS"},
+  {"code": "marketplace", "name": "Каталог"},
+  {"code": "search", "name": "Поиск"}
 ];
 
 const internalSources = [
-  ":",
-  "push:Плюс на главной",
+  {"code": "", "name": ""},
+  {"code": "plus", "name": "Плюс на главной"}
 ];
 
 
 function App() {
-  let state;
-  state = {
-    platform: ""
+  let state = {
+    platformLink: "test",
+    marketplace: ""
+  }
+  let onPlatformChanged = function (e) {
+    state.platformLink = e.currentTarget.value;
+    // document.writeln(state.platformLink);
+  }
+  let  onMplaceChanged = function (e) {
+    state.marketplace = e.currentTarget.value;
   }
   return (
     <div className="App">
-      <input className="App-input" value={state.platform}/>
-      <button value={platform["android-test"].name} title="ddddddd"/>
-      <select name="platormSelect" value={state.platform}>
+      <div>{state.platformLink}?marketPlaceId={state.marketplace}</div>
+      <input className="App-input" value={state.platformLink}/>
+      {/*<button value={platform["android-test"].name} title="ddddddd"/>*/}
+      <select name="platormSelect" value={state.platformLink} onChange={onPlatformChanged}>
         {Object.keys(platform).map((k) => {
           return <option value={platform[k].base}>{platform[k].name}</option>;
         })}
       </select>
+      {marketplace.map((k) => {
+        return (
+            <div className="App-mplace">
+              <input type="radio" name="marketplace"
+                     value={k.code}
+                     checked={state.marketplace === k.code}
+                     onChange={onMplaceChanged}
+              />
+              <label>{k.name}</label>
+            </div>
+        );
+      })}
+
       {/*<header className="App-header">*/}
       {/*  <img src={logo} className="App-logo" alt="logo" />*/}
       {/*  <p>*/}
