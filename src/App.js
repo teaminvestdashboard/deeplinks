@@ -19,7 +19,10 @@ const platform = {
 const marketplace = [
   {"code": "investmentsCatalog", "name": "Основная витрина инвестиций"},
   {"code": "PIFCatalog", "name": "Витрина категории ПИФ"},
-  {"code": "IIS_products", "name": "Витрина ИИС с продуктами"}
+  {"code": "IIS_products", "name": "Витрина ИИС с продуктами"},
+  {"code": "trustCatalog", "name": "Доверительное управление"},
+  {"code": "investPlansAllMB", "name": "Инвестиционные планы"},
+  {"code": "forYouCatalog", "name": "По уровню риска"},
 ];
 
 const externalSources = [
@@ -33,7 +36,10 @@ const externalSources = [
 
 const internalSources = [
   {"code": "", "name": "Внешний переход "},
-  {"code": "plus", "name": "Плюс на главной"}
+  {"code": "Main_Plus_InvestPFM", "name": "Плюс на главной"},
+  {"code": "Marketplace_All_InvestPFM", "name": "Каталог продуктов"},
+  {"code": "GlobalSearch_InvestPFM", "name": "Умный поиск"},
+  {"code": "All_Assets_InvestPFM", "name": "Всего средств"},
 ];
 
 let state = {
