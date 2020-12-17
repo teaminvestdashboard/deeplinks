@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/react4.iml" filepath="$PROJECT_DIR$/.idea/react4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mplace_deeplinks.iml" filepath="$PROJECT_DIR$/.idea/mplace_deeplinks.iml" />
     </modules>
   </component>
 </project>
