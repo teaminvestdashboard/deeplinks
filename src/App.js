@@ -25,6 +25,12 @@ const platform = {
     base: "https://sberbank.ru/sms/pfmmp-website",
     marketplaceId: false,
     ext: "smart"
+  },
+  smart_id: {
+    name: "Смартлинк на подвитрину",
+    base: "https://sberbank.ru/sms/pfmmp-website",
+    marketplaceId: true,
+    ext: "smart"
   }
 };
 
@@ -145,7 +151,9 @@ class App extends React.Component {
   render() {
     return (
         <div className="App">
-          <div className="App-link"><a href={this.getLink()} rel="alternate">{this.getLink()}</a></div>
+          <div className="App-link">
+            <a href={this.getLink()} rel="alternate" className="App-link-text">{this.getLink()}</a>
+          </div>
           <table>
             <tbody>
             <tr>

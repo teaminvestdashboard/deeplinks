@@ -16,6 +16,14 @@
   margin-bottom: 20px;
 }
 
+.App-link-text {
+  text-decoration: none;
+}
+
+.App-link-text:hover {
+  text-decoration: underline;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
