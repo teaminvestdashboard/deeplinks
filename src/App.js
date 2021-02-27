@@ -1,6 +1,8 @@
 import './App.css';
 import React from "react";
 
+var QRCode = require("qrcode.react")
+
 const platform = {
   android_prom: {
     name: "Android ПРОМ",
@@ -132,8 +134,9 @@ class App extends React.Component {
     targetCode: targets[0].options[0].code,
     internal: internalSources[0].code,
     external: externalSources[0].code,
-    campaign: "",
-    content: "",
+    campaign: "test_company",
+    content: "test_content",
+    uid: "test_uid",
     debug: ""
   };
 
@@ -197,7 +200,7 @@ class App extends React.Component {
               utm_medium + '-_-' +
               utm_campaign + '-_-' +
               utm_content + '-_-' +
-              ga_uid
+              this.state.uid
           );
         }
       }
@@ -239,6 +242,10 @@ class App extends React.Component {
 
   onContentChanged = (e) => {
     this.setState({content: e.currentTarget.value});
+  };
+
+  onUIDChanged = (e) => {
+    this.setState({uid: e.currentTarget.value});
   };
 
   render() {
@@ -329,14 +336,25 @@ class App extends React.Component {
               </td>
             </tr>
             <tr>
-              <th>Кампания</th><td colSpan={5}>
-                    <input type="text" id="campaign" value={this.state.campaign} onChange={this.onCampaignChanged}/>
+              <td colSpan={3} rowSpan={3} align="center">
+                <QRCode value={this.getLink()}/>
+              </td>
+              <th>Кампания</th>
+              <td colSpan={2}>
+                <input type="text" id="campaign" value={this.state.campaign} onChange={this.onCampaignChanged}/>
               </td>
             </tr>
             <tr>
-              <th>Содержание</th><td colSpan={5}>
-              <input type="text" id="campaign" value={this.state.content} onChange={this.onContentChanged}/>
+              <th>Содержание</th>
+              <td>
+                <input type="text" id="content" value={this.state.content} onChange={this.onContentChanged}/>
             </td>
+            </tr>
+            <tr>
+              <th>UID</th>
+              <td>
+                <input type="text" id="uid" value={this.state.uid} onChange={this.onUIDChanged}/>
+              </td>
             </tr>
             </tbody>
           </table>
