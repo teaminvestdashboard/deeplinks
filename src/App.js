@@ -22,59 +22,46 @@ const platform = {
     appendCode: true,
     ext: "mobile"
   },
-  smart: {
-    name: "Смартлинк общий",
+  // smart: {
+  //   name: "Смартлинк общий",
+  //   base: "https://sberbank.ru/sms/",
+  //   appendCode: false,
+  //   ext: "smart"
+  // },
+  smart_sms: {
+    name: "Смартлинк для SMS",
     base: "https://sberbank.ru/sms/",
     appendCode: false,
-    ext: "smart"
+    ext: "no"
   },
   smart_id: {
-    name: "Смартлинк с указанием экрана",
+    name: "Смартлинк для сайта",
     base: "https://sberbank.ru/sms/",
     appendCode: true,
     ext: "smart"
   }
 };
 
-const deeplinks = {
-  marketplace: {
-    android_prom: {link: "pfm/marketplace", param: "marketPlaceId"},
-    android_test: {link: "pfm/marketplace", param: "marketPlaceId"},
-    ios: {link: "pfm/marketplace", param: "marketPlaceId"},
-    smart: {link: "pfmmp-website", param: ""},
-    smart_id: {link: "mp_all", param: ""}
-  },
-  pif: {
-    android_prom: {link: "welfare/invest-pif/product", param: "productCode"},
-    android_test: {link: "welfare/invest-pif/product", param: "productCode"},
-    ios: {link: "welfare/invest-pif/product", param: "productCode"},
-    smart: {link: "fund_all", param: ""},
-    smart_id: {link: "fund_all", param: ""}
-  },
-  trust: {
-    android_prom: {link: "investments/tm/product/card", param: "productCode"},
-    android_test: {link: "investments/tm/product/card", param: "productCode"},
-    ios: {link: "investments/tm/product/card", param: "productCode"},
-    smart: {link: "iia_saving-website", param: ""},
-    smart_id: {link: "iia_all", param: ""}
-  }
-};
-
 const targets = [
   {
-    code: "marketplace",    name: "Витрина", param: "marketPlaceId",
+    code: "marketplace",    name: "Витрина",
     options: [
-      {code: "investmentsCatalog", name: "Основная витрина инвестиций"},
+      {code: "investmentsCatalog", name: "Основная витрина инвестиций", isDefault: true},
       {code: "PIFCatalog",         name: "Витрина категории ПИФ"},
       {code: "IIS_products",       name: "Витрина ИИС с продуктами"},
       {code: "trustCatalog",       name: "Доверительное управление"},
       {code: "investPlansAllMB",   name: "Инвестиционные планы"},
       {code: "forYouCatalog",      name: "По уровню риска"},
+      {code: "maxProfitSelection",           name: "Максимум дохода"},
+      {code: "minAmountSelection",           name: "Минимальная сумма"},
+      {code: "regularPayoutsSelection",      name: "Регулярные выплаты"},
+      {code: "currencyInvestSelection",      name: "Инвестиции в валютные активы"},
     ]
   },
   {
-    code: "pif",            name: "Продукты ПИФ",     param: "productCode",
+    code: "pif",            name: "Продукты ПИФ",
     options: [
+      // {code: "",   name: "Все фонды", use_target: "marketplace", use_code:"PIFCatalog"},
       {code: "fund_equity_dn",   name: "Фонд акций Добрыня Никитич"},
       {code: "fund_bond_im",     name: "Фонд облигаций Илья Муромец"},
       {code: "fund_balanced",    name: "Фонд Сбалансированный"},
@@ -85,24 +72,40 @@ const targets = [
     ]
   },
   {
-    code: "trust",          name: "Продукты ДУ",      param: "productCode",
+    code: "trust",          name: "Продукты ДУ",
     options: [
+      // {code: "",                   name: "Все стратегии"},
       {code: "trust_conservative", name: "Стратегия \"Консервативный портфель\""},
-      {code: "trust_careful", name: "Стратегия \"Осторожный портфель\""},
-      {code: "trust_moderate", name: "Стратегия \"Умеренный портфель\""},
+      {code: "trust_careful",      name: "Стратегия \"Осторожный портфель\""},
+      {code: "trust_moderate",     name: "Стратегия \"Умеренный портфель\""},
       {code: "trust_modagressive", name: "Стратегия \"Умеренно-агрессивный портфель\""},
     ]
   }
 ];
 
-// const marketplace = [
-//   {code: "investmentsCatalog", name: "Основная витрина инвестиций"},
-//   {code: "PIFCatalog",         name: "Витрина категории ПИФ"},
-//   {code: "IIS_products",       name: "Витрина ИИС с продуктами"},
-//   {code: "trustCatalog",       name: "Доверительное управление"},
-//   {code: "investPlansAllMB",   name: "Инвестиционные планы"},
-//   {code: "forYouCatalog",      name: "По уровню риска"},
-// ];
+const deeplinks = {
+  marketplace: {
+    android_prom: {link: "pfm/marketplace", param: "marketPlaceId"},
+    android_test: {link: "pfm/marketplace", param: "marketPlaceId"},
+    ios: {link: "pfm/marketplace", param: "marketPlaceId"},
+    smart_sms: {link: "pfmmp", param: ""},
+    smart_id: {link: "mp_all", param: ""}
+  },
+  pif: {
+    android_prom: {link: "welfare/invest-pif/product", param: "productCode"},
+    android_test: {link: "welfare/invest-pif/product", param: "productCode"},
+    ios: {link: "welfare/invest-pif/product", param: "productCode"},
+    smart_sms: {link: "invfund", param: "productCode", appendCode: true},
+    smart_id: {link: "invfund-website", param: "productCode"}
+  },
+  trust: {
+    android_prom: {link: "investments/tm/product/card", param: "productCode"},
+    android_test: {link: "investments/tm/product/card", param: "productCode"},
+    ios: {link: "investments/tm/product/card", param: "productCode"},
+    smart_sms: {link: "pfmmp_tc/", param: ""},
+    smart_id: {link: "iia_all", param: ""}
+  }
+};
 
 const externalSources = [
   {code: "",             name: "Внутренний",     source: "", medium: ""},
@@ -158,6 +161,14 @@ class App extends React.Component {
     return t.param + symbol;
   };
 
+  getAppendCode = () => {
+    let platform_record = platform[this.state.platformCode];
+    let deeplink = deeplinks[this.state.target][this.state.platformCode];
+    let new_appendCode = platform_record.appendCode;
+    if("appendCode" in deeplink)
+      new_appendCode = deeplink.appendCode;
+    return new_appendCode;
+  };
 
   getLink = () => {
     let platform_record = platform[this.state.platformCode];
@@ -166,7 +177,7 @@ class App extends React.Component {
     if(deeplink !== undefined)
       link = link + deeplink.link;
     let params = [];
-    if(platform_record.appendCode) {
+    if(this.state.targetCode !== "" && this.getAppendCode()) {
       if(deeplink.param !== "")
         params.push(deeplink.param + "=" + this.state.targetCode);
       else
@@ -192,7 +203,7 @@ class App extends React.Component {
           if(utm_campaign !== "")
             params.push("utm_content=" + utm_content);
         }
-        else {
+        else if(platform_record.ext !== "no") {
           let af_media_source = 'pfmmp';
           params.push("external_source=" +
               af_media_source + '-_-' +
@@ -211,41 +222,43 @@ class App extends React.Component {
     return link;
   };
 
+  changeState = (state_changes) => {
+    this.setState(state_changes);
+    // this.setState({appendCode: this.getAppendCode()})
+    // this.setState({link: this.getLink()})
+    document.getElementById("debug").innerText = JSON.stringify(this.state, null, 2);
+  }
+
   onPlatformChanged = (e) => {
-    this.setState({platformCode: e.currentTarget.value});
-    // document.getElementById("debug").innerText = this.getLink();
+    this.changeState({platformCode: e.currentTarget.value});
   };
 
   onTargetChanged = (e) => {
-    this.setState({
-      target: e.currentTarget.value
-    });
-    // document.getElementById("debug").innerText = this.getLink();
+    this.changeState({target: e.currentTarget.value});
   };
 
   onCodeChanged = (e) => {
-    this.setState({targetCode: e.currentTarget.value});
-    // document.getElementById("debug").innerText = this.getLink();
+    this.changeState({targetCode: e.currentTarget.value});
   };
 
   onInternalChanged = (e) => {
-    this.setState({internal: e.currentTarget.value});
+    this.changeState({internal: e.currentTarget.value});
   };
 
   onExternalChanged = (e) => {
-    this.setState({external: e.currentTarget.value});
+    this.changeState({external: e.currentTarget.value});
   };
 
   onCampaignChanged = (e) => {
-    this.setState({campaign: e.currentTarget.value});
+    this.changeState({campaign: e.currentTarget.value});
   };
 
   onContentChanged = (e) => {
-    this.setState({content: e.currentTarget.value});
+    this.changeState({content: e.currentTarget.value});
   };
 
   onUIDChanged = (e) => {
-    this.setState({uid: e.currentTarget.value});
+    this.changeState({uid: e.currentTarget.value});
   };
 
   render() {
@@ -257,7 +270,11 @@ class App extends React.Component {
           <table>
             <tbody>
             <tr>
-              <th>Платформа</th><th>Цель</th><th>Экран</th><th>Внутренняя точка перехода</th><th>Рассылка</th>
+              <th>Платформа</th>
+              <th>Куда перейти</th>
+              <th>Экран</th>
+              <th>Внутренний источник перехода</th>
+              <th>Внешний источник перехода</th>
             </tr>
             <tr>
               <td className="App-cell">{Object.keys(platform).map((k) => {
@@ -294,12 +311,18 @@ class App extends React.Component {
               </td>
               <td className="App-cell">{this.getTargetOptions().map((k) => {
                   let id = "targetCode_" + k.code;
+                  let option_enabled = this.getAppendCode();
+                  if(k.code === "")
+                    option_enabled = true;
+                  if("isDefault" in k && k.isDefault)
+                    option_enabled = true;
                   return (
                       <div className="App-select">
                         <input type="radio" name="marketplace" id={id}
                                value={k.code}
                                onChange={this.onCodeChanged}
                                checked={this.state.targetCode === k.code}
+                               disabled={!option_enabled}
                         />
                         <label for={id}>{k.name}</label>
                       </div>
