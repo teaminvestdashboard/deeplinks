@@ -120,6 +120,7 @@ const externalSources = [
   {code: "inst",         name: "Instagram",        },
   {code: "sberbank",     name: "Сайт Сбер Банка", medium: "site"},
   {code: "qr_vsp",       name: "QR-код в ВСП",    medium: "qr"},
+  {code: "other",        name: "Другой"},
 ];
 
 const internalSources = [
@@ -137,6 +138,7 @@ class App extends React.Component {
     targetCode: targets[0].options[0].code,
     internal: internalSources[0].code,
     external: externalSources[0].code,
+    external_text: "",
     campaign: "test_company",
     content: "test_content",
     uid: "test_uid",
@@ -192,6 +194,10 @@ class App extends React.Component {
       if(record !== undefined) {
         let utm_source = record.source !== undefined ? record.source : record.code;
         let utm_medium = record.medium !== undefined ? record.medium : utm_source;
+        if(this.state.external === "other") {
+          utm_source = this.state.external_text;
+          utm_medium = this.state.external_text;
+        }
         let utm_campaign = this.state.campaign;
         let utm_content = this.state.content;
         let ga_uid = "place_uid_here";
@@ -226,7 +232,8 @@ class App extends React.Component {
     this.setState(state_changes);
     // this.setState({appendCode: this.getAppendCode()})
     // this.setState({link: this.getLink()})
-    document.getElementById("debug").innerText = JSON.stringify(this.state, null, 2);
+    // document.getElementById("debug").innerText =
+    //     JSON.stringify(this.state, null, 2);
   }
 
   onPlatformChanged = (e) => {
@@ -247,6 +254,10 @@ class App extends React.Component {
 
   onExternalChanged = (e) => {
     this.changeState({external: e.currentTarget.value});
+  };
+
+  onExtTextChanged = (e) => {
+    this.changeState({external_text: e.currentTarget.value});
   };
 
   onCampaignChanged = (e) => {
@@ -345,13 +356,30 @@ class App extends React.Component {
               </td>
               <td className="App-cell">{externalSources.map((k) => {
                   let id = "external" + k.code;
-                  return (
-                      <div className="App-select">
+                  let input = (
                         <input type="radio" name="external" id={id}
                                value={k.code}
                                onChange={this.onExternalChanged}
                                checked={this.state.external === k.code}
                         />
+                  );
+                  if(k.code === "other") {
+                    let input_text = (
+                        <input type="text" id="external_text"
+                               value={this.state.external_text}
+                               onChange={this.onExtTextChanged}/>
+                    );
+                    return (
+                        <div className="App-select">
+                          {input}
+                          <label for={id}>{k.name}</label><br/>
+                          {input_text}
+                        </div>
+                    );
+                  }
+                  return (
+                      <div className="App-select">
+                        {input}
                         <label for={id}>{k.name}</label>
                       </div>
                   );
