@@ -200,7 +200,7 @@ class App extends React.Component {
         }
         let utm_campaign = this.state.campaign;
         let utm_content = this.state.content;
-        let ga_uid = "place_uid_here";
+        // let ga_uid = "place_uid_here";
         if(platform_record.ext === "smart") {
           params.push("utm_source=" + utm_source);
           params.push("utm_medium=" + utm_medium);
@@ -367,7 +367,11 @@ class App extends React.Component {
                     let input_text = (
                         <input type="text" id="external_text"
                                value={this.state.external_text}
-                               onChange={this.onExtTextChanged}/>
+                               onChange={this.onExtTextChanged}
+                               onClick={() => {
+                                 this.changeState({external: k.code})
+                               }}
+                        />
                     );
                     return (
                         <div className="App-select">
