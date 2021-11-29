@@ -181,13 +181,13 @@ class App extends React.Component {
                   let name = platform[k].name;
                   let id = "platform" + code;
                   return (
-                      <div className="App-select">
+                      <div className="App-select" key={id}>
                         <input type="radio" name="platform" id={id}
                                value={code}
                                onChange={this.onPlatformChanged}
                                checked={this.state.platformCode === code}
                         />
-                        <label for={id}>{name}</label>
+                        <label htmlFor={id}>{name}</label>
                       </div>
                   );
                   // return <option value={platform[k].base}>{platform[k].name}</option>;
@@ -196,14 +196,14 @@ class App extends React.Component {
               <td className="App-cell">{targets.map((k) => {
                   let id = "target_" + k.code;
                   return (
-                      <div className="App-select">
+                      <div className="App-select" key={id}>
                         <input type="radio" name="target" id={id}
                                value={k.code}
                                onChange={this.onTargetChanged}
                                checked={this.state.target === k.code}
 
                         />
-                        <label for={id}>{k.name}</label>
+                        <label htmlFor={id}>{k.name}</label>
                       </div>
                   );
                 })}
@@ -216,14 +216,14 @@ class App extends React.Component {
                   if("isDefault" in k && k.isDefault)
                     option_enabled = true;
                   return (
-                      <div className="App-select">
+                      <div className="App-select" key={id}>
                         <input type="radio" name="marketplace" id={id}
                                value={k.code}
                                onChange={this.onCodeChanged}
                                checked={this.state.targetCode === k.code}
                                disabled={!option_enabled}
                         />
-                        <label for={id}>{k.name}</label>
+                        <label htmlFor={id}>{k.name}</label>
                       </div>
                   );
                 })}
@@ -231,13 +231,13 @@ class App extends React.Component {
               <td className="App-cell">{internalSources.map((k) => {
                   let id = "internal" + k.code;
                   return (
-                      <div className="App-select">
+                      <div className="App-select" key={id}>
                         <input type="radio" name="internal" id={id}
                                value={k.code}
                                onChange={this.onInternalChanged}
                                checked={this.state.internal === k.code}
                         />
-                        <label for={id}>{k.name}</label>
+                        <label htmlFor={id}>{k.name}</label>
                       </div>
                   );
                 })}
@@ -262,17 +262,17 @@ class App extends React.Component {
                         />
                     );
                     return (
-                        <div className="App-select">
+                        <div className="App-select" key={id}>
                           {input}
-                          <label for={id}>{k.name}</label><br/>
+                          <label htmlFor={id}>{k.name}</label><br/>
                           {input_text}
                         </div>
                     );
                   }
                   return (
-                      <div className="App-select">
+                      <div className="App-select" key={id}>
                         {input}
-                        <label for={id}>{k.name}</label>
+                        <label htmlFor={id}>{k.name}</label>
                       </div>
                   );
                 })}
