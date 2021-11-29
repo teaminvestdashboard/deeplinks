@@ -1,11 +1,10 @@
-import React from "react";
 import {useSelector} from "react-redux";
 
 const Link = () => {
-    const links = useSelector(({Links}) => Links.platform);
-    console.log(links)
+    const links = useSelector(({Links}) => Links);
+    const path = `${links.platform}${links.target}${links.screen}${links.internalSource}${links.externalSource}`
     return (
-        <a>AAA</a>
+        <a href={path} target="_blank" rel="noreferrer">{path}</a>
     )
 }
 
