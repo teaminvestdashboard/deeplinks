@@ -1,0 +1,15 @@
+export const internalSources = [
+    {code: "",                          name: "Внешний переход "},
+    {code: "Main_Plus_InvestPFM",       name: "Плюс на главной"},
+    {code: "Main_Plus_InvestBroker",       name: "На сценарий открытия брокерского счета"},
+    {code: "Marketplace_All_InvestPFM", name: "Каталог продуктов"},
+    {code: "GlobalSearch_InvestPFM",    name: "Умный поиск"},
+    {code: "All_Assets_InvestPFM",      name: "Всего средств"},
+    {code: "Main_Plus_Pensions",      name: "Раздел Пенсии"},
+    {code: "Banner_Plus",      name: "Баннер в пинах"},
+    {code: "Virtual_Assistant",      name: "Виртуальный ассистент"},
+    {code: "Marketplace_Widget_InvestPFM",      name: "Из карусели"},
+    {code: "BrokerAcc",      name: "Из процесса открытия брокерского счет на витрине"},
+    {code: "FinPlan",      name: "Из ФинПлана"},
+    {code: "Tips",      name: "Из баннера Совета"},
+];
