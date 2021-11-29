@@ -1,5 +1,5 @@
 import {InitialState} from "../initialState";
-import {ADD_EXTERNAL_SOURCE, ADD_INTERNAL_SOURCE, ADD_PLATFORM, ADD_SCREEN, ADD_TARGET} from "../consts";
+import {ADD_EXTERNAL_SOURCE, ADD_INTERNAL_SOURCE, ADD_PLATFORM, ADD_SCREEN, ADD_TARGET, WEB_ACTIVE} from "../consts";
 
 
 const LinksReducer = (state = InitialState, action) => {
@@ -7,7 +7,8 @@ const LinksReducer = (state = InitialState, action) => {
         case ADD_PLATFORM :
             return {
                 ...state,
-                platform: action.data
+                platform: action.data,
+                web: false
             }
         case ADD_TARGET :
             return {
@@ -28,6 +29,11 @@ const LinksReducer = (state = InitialState, action) => {
             return {
                 ...state,
                 externalSource: action.data
+            }
+        case WEB_ACTIVE :
+            return {
+                ...state,
+                web: action.data
             }
         default:
             return state

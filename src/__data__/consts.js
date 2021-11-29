@@ -3,3 +3,4 @@ export const ADD_TARGET = "ADD_TARGET";
 export const ADD_SCREEN = "ADD_SCREEN";
 export const ADD_INTERNAL_SOURCE = "ADD_INTERNAL_SOURCE";
 export const ADD_EXTERNAL_SOURCE = "ADD_EXTERNAL_SOURCE";
+export const WEB_ACTIVE = "WEB_ACTIVE";

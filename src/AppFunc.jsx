@@ -1,5 +1,5 @@
 import './App.css';
-import {Link, Platform} from "./components";
+import {Link, Platform, Target} from "./components";
 
 
 const AppFunc = () => {
@@ -9,6 +9,7 @@ const AppFunc = () => {
             <Link/>
             <div className={"wrapper"}>
                 <Platform/>
+                <Target/>
             </div>
         </div>
     )

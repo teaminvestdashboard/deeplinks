@@ -3,5 +3,6 @@ export const InitialState = {
     target: "",
     screen: "",
     internalSource: "",
-    externalSource: ""
+    externalSource: "",
+    web: false
 }

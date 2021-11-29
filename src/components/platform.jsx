@@ -1,6 +1,6 @@
 import {platformNEW} from "../__data__";
 import {useDispatch} from "react-redux";
-import {addPlatform} from "../__data__/actions/platformAction";
+import {addPlatform, webPlatform} from "../__data__/actions/platformAction";
 import {useState} from "react";
 
 const Platform = () => {
@@ -10,6 +10,9 @@ const Platform = () => {
     const handlePlatform = (item) => {
         setActivePlatform(item.id)
         dispatch(addPlatform(item.base))
+        if(item.id === "web") {
+            dispatch(webPlatform())
+        }
     }
 
     return (
