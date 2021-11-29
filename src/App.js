@@ -9,7 +9,7 @@ class App extends React.Component {
   state = {
     platformCode: "android_prom",
     target: "marketplace",
-    targetCode: targets[0].options[0].code,
+    targetCode: "",
     internal: internalSources[0].code,
     external: externalSources[0].code,
     external_text: "",
@@ -122,6 +122,7 @@ class App extends React.Component {
 
   onPlatformChanged = (e) => {
     this.changeState({platformCode: e.currentTarget.value});
+
   };
 
   onTargetChanged = (e) => {
@@ -161,6 +162,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.platformCode)
     return (
         <div className="App">
           <div className="App-link">
@@ -218,9 +220,9 @@ class App extends React.Component {
                   return (
                       <div className="App-select" key={id}>
                         <input type="radio" name="marketplace" id={id}
-                               value={k.code}
+                               value={this.state.platformCode === "web" ? k.webCode : k.code}
                                onChange={this.onCodeChanged}
-                               checked={this.state.targetCode === k.code}
+                               checked={this.state.targetCode === k.code || this.state.targetCode === k.webCode}
                                disabled={!option_enabled}
                         />
                         <label htmlFor={id}>{k.name}</label>

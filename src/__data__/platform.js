@@ -29,9 +29,9 @@ export const platform = {
         appendCode: false,
         ext: "no"
     },
-    smart_id: {
+    web: {
         name: "Смартлинк для сайта",
-        base: "https://sberbank.ru/sms/",
+        base: "https://online.sberbank.ru/CSAFront/service.do",
         appendCode: true,
         ext: "smart"
     }
