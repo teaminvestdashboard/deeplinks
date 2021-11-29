@@ -15,7 +15,8 @@ class App extends React.Component {
     external_text: "",
     campaign: "test_company",
     content: "test_content",
-    uid: "test_uid",
+    medium: "test_medium",
+    term: "test_term",
     debug: ""
   };
 
@@ -48,32 +49,39 @@ class App extends React.Component {
 
   getLink = () => {
     let platform_record = platform[this.state.platformCode];
-    let link = platform_record.base;
-    let deeplink = deeplinks[this.state.target][this.state.platformCode];
-    if(deeplink !== undefined)
+    let link = platform_record.base; //получаем первую часть
+    let deeplink = deeplinks[this.state.target][this.state.platformCode]; //получаем вторую часть
+
+    if(deeplink !== undefined) {
       link = link + deeplink.link;
+    }
+
     let params = [];
-    if(this.state.targetCode !== "" && this.getAppendCode()) {
+    if(this.state.targetCode !== "" && this.getAppendCode()) { //получаем третью часть
       if(deeplink.param !== "")
         params.push(deeplink.param + "=" + this.state.targetCode);
       else
         params.push(this.state.targetCode);
     }
-    if(this.state.internal !== "")
+
+
+    if(this.state.internal !== "") { //получаем четвертую часть
       params.push("internal_source=" + this.state.internal);
+    }
     if(this.state.external !== "") {
       let record = externalSources.find((element) => {
         return element.code === this.state.external;
       })
-      if(record !== undefined) {
+      if(record !== undefined) { //получаем utm параметры
         let utm_source = record.source !== undefined ? record.source : record.code;
         let utm_medium = record.medium !== undefined ? record.medium : utm_source;
         if(this.state.external === "other") {
           utm_source = this.state.external_text;
-          utm_medium = this.state.external_text;
+          utm_medium = this.state.medium;
         }
         let utm_campaign = this.state.campaign;
         let utm_content = this.state.content;
+        let utm_term = this.state.term;
         // let ga_uid = "place_uid_here";
         if(platform_record.ext === "smart") {
           params.push("utm_source=" + utm_source);
@@ -82,6 +90,8 @@ class App extends React.Component {
             params.push("utm_campaign=" + utm_campaign);
           if(utm_campaign !== "")
             params.push("utm_content=" + utm_content);
+          if(utm_term !== "")
+            params.push("utm_term=" + utm_term);
         }
         else if(platform_record.ext !== "no") {
           let af_media_source = 'pfmmp';
@@ -134,6 +144,10 @@ class App extends React.Component {
     this.changeState({external_text: e.currentTarget.value});
   };
 
+  onMeduimChange = (e) => {
+    this.changeState({medium: e.currentTarget.value});
+  };
+
   onCampaignChanged = (e) => {
     this.changeState({campaign: e.currentTarget.value});
   };
@@ -142,8 +156,8 @@ class App extends React.Component {
     this.changeState({content: e.currentTarget.value});
   };
 
-  onUIDChanged = (e) => {
-    this.changeState({uid: e.currentTarget.value});
+  onTermChanged = (e) => {
+    this.changeState({term: e.currentTarget.value});
   };
 
   render() {
@@ -265,24 +279,30 @@ class App extends React.Component {
               </td>
             </tr>
             <tr>
-              <td colSpan={3} rowSpan={3} align="center">
+              <td colSpan={4} rowSpan={4} align="center">
                 <QRCode value={this.getLink()}/>
               </td>
-              <th>Кампания</th>
+              <th>utm_medium</th>
+              <td>
+                <input type="text" id="medium" value={this.state.medium} onChange={this.onMeduimChange}/>
+              </td>
+            </tr>
+            <tr>
+              <th>utm_compaign</th>
               <td colSpan={2}>
                 <input type="text" id="campaign" value={this.state.campaign} onChange={this.onCampaignChanged}/>
               </td>
             </tr>
             <tr>
-              <th>Содержание</th>
+              <th>utm_content</th>
               <td>
                 <input type="text" id="content" value={this.state.content} onChange={this.onContentChanged}/>
             </td>
             </tr>
             <tr>
-              <th>UID</th>
+              <th>utm_term</th>
               <td>
-                <input type="text" id="uid" value={this.state.uid} onChange={this.onUIDChanged}/>
+                <input type="text" id="term" value={this.state.term} onChange={this.onTermChanged}/>
               </td>
             </tr>
             </tbody>

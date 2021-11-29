@@ -11,5 +11,5 @@ export const externalSources = [
     {code: "inst",         name: "Instagram",        },
     {code: "sberbank",     name: "Сайт Сбер Банка", medium: "site"},
     {code: "qr_vsp",       name: "QR-код в ВСП",    medium: "qr"},
-    {code: "other",        name: "Другой"},
+    {code: "other",        name: "Другой (utm_source)"},
 ];
