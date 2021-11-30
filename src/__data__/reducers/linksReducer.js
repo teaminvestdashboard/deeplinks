@@ -1,6 +1,6 @@
 import {InitialState} from "../initialState";
 import {
-    ADD_DEEPLINK,
+    ADD_DEEPLINK, ADD_DEEPLINK_TYPE,
     ADD_EXTERNAL_SOURCE,
     ADD_INTERNAL_SOURCE,
     ADD_PLATFORM,
@@ -41,6 +41,11 @@ const LinksReducer = (state = InitialState, action) => {
             return {
                 ...state,
                 web: action.data
+            }
+        case ADD_DEEPLINK_TYPE :
+            return {
+                ...state,
+                deeplinkType: action.data
             }
         default:
             return state

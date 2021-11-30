@@ -5,6 +5,7 @@ import {externalSources} from "./externalSources";
 import {internalSources} from "./internalSources";
 import {platformNEW} from "./platformNEW";
 import {deeplinksNEW} from "./deeplinksNEW";
+import {screen} from "./screen";
 
 export {
     platform,
@@ -12,6 +13,7 @@ export {
     targets,
     deeplinksNEW,
     deeplinks,
+    screen,
     externalSources,
     internalSources
 }

@@ -1,3 +1,4 @@
 export {default as Link} from "./link";
 export {default as Platform} from "./platform";
 export {default as Deeplink} from "./deeplink";
+export {default as Screen} from "./screen";

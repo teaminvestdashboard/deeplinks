@@ -2,7 +2,7 @@ import {useState} from "react";
 import {useDispatch} from "react-redux";
 
 import {deeplinksNEW} from "../__data__";
-import {addDeeplink} from "../__data__/actions/deeplinkAction";
+import {addDeeplink, addDeeplinkType} from "../__data__/actions/deeplinkAction";
 
 const Deeplink = () => {
     const [activeDeeplink, setActiveDeeplink] = useState(null)
@@ -11,6 +11,7 @@ const Deeplink = () => {
     const handleDeeplink = (item) => {
         setActiveDeeplink(item.id)
         dispatch(addDeeplink(item.path))
+        dispatch(addDeeplinkType(item.id))
     }
 
     return (

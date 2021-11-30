@@ -4,5 +4,6 @@ export const InitialState = {
     screen: "",
     internalSource: "",
     externalSource: "",
-    web: false
+    web: false,
+    deeplinkType: "marketplace"
 }

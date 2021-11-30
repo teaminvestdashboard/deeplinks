@@ -1,5 +1,5 @@
 import './App.css';
-import {Deeplink, Link, Platform} from "./components";
+import {Deeplink, Link, Platform, Screen} from "./components";
 
 
 const AppFunc = () => {
@@ -10,6 +10,7 @@ const AppFunc = () => {
             <div className={"wrapper"}>
                 <Platform/>
                 <Deeplink/>
+                <Screen/>
             </div>
         </div>
     )
