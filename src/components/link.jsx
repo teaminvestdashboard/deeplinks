@@ -8,7 +8,7 @@ const Link = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(addLink(path))
-    }, [dispatch])
+    }, [dispatch, path])
     return (
         <a href={path} target="_blank" rel="noreferrer">{path}</a>
     )

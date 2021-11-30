@@ -1,5 +1,5 @@
 import './App.css';
-import {Deeplink, ExternalSource, InternalSource, Link, Platform, Screen} from "./components";
+import {Deeplink, ExternalSource, InternalSource, Link, Platform, QrCode, Screen} from "./components";
 
 
 const AppFunc = () => {
@@ -14,6 +14,7 @@ const AppFunc = () => {
                 <InternalSource/>
                 <ExternalSource/>
             </div>
+            <QrCode/>
         </div>
     )
 }
