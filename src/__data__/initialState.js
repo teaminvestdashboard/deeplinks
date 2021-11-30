@@ -1,6 +1,6 @@
 export const InitialState = {
     platform: "",
-    target: "",
+    deeplink: "",
     screen: "",
     internalSource: "",
     externalSource: "",

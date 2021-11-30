@@ -26,17 +26,17 @@ export const platformNEW = [
     //   appendCode: false,
     //   ext: "smart"
     // },
-    {
-        id: "smart_sms",
-        name: "Смартлинк для SMS",
-        base: "https://sberbank.ru/sms/",
-        appendCode: false,
-        ext: "no"
-    },
+    // {
+    //     id: "smart_sms",
+    //     name: "Смартлинк для SMS",
+    //     base: "https://sberbank.ru/sms/",
+    //     appendCode: false,
+    //     ext: "no"
+    // },
     {
         id: "web",
-        name: "Смартлинк для сайта",
-        base: "https://online.sberbank.ru/CSAFront/service.do",
+        name: "Web",
+        base: "https://online.sberbank.ru/CSAFront/service.do?",
         appendCode: true,
         ext: "smart"
     }
