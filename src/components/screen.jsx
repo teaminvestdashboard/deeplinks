@@ -9,14 +9,10 @@ const Screen = () => {
     const dispatch = useDispatch();
     const screenItems = screen.find(item => item.code === deeplinkType)
 
-
     const handleDeeplink = (item) => {
         setActiveScreen(item.code)
         dispatch(addScreen(`?${screenItems.param}=${item.code}`))
     }
-
-    
-    console.log(screenItems)
 
     return (
         <div className={"block"}>

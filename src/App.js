@@ -162,7 +162,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.platformCode)
     return (
         <div className="App">
           <div className="App-link">

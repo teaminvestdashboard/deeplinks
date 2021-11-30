@@ -1,5 +1,5 @@
 import './App.css';
-import {Deeplink, Link, Platform, Screen} from "./components";
+import {Deeplink, ExternalSource, InternalSource, Link, Platform, Screen} from "./components";
 
 
 const AppFunc = () => {
@@ -11,6 +11,8 @@ const AppFunc = () => {
                 <Platform/>
                 <Deeplink/>
                 <Screen/>
+                <InternalSource/>
+                <ExternalSource/>
             </div>
         </div>
     )
