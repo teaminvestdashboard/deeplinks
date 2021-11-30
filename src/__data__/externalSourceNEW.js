@@ -1,6 +1,6 @@
 export const externalSourcesNEW = [
     {
-        code: "",
+        code: "empty",
         name: "Внутренний"
     },
     {

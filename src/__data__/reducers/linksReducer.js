@@ -5,7 +5,8 @@ import {
     ADD_INTERNAL_SOURCE,
     ADD_PLATFORM,
     ADD_SCREEN,
-    WEB_ACTIVE
+    WEB_ACTIVE,
+    ADD_LINK
 } from "../consts";
 
 
@@ -46,6 +47,11 @@ const LinksReducer = (state = InitialState, action) => {
             return {
                 ...state,
                 deeplinkType: action.data
+            }
+        case ADD_LINK :
+            return {
+                ...state,
+                link: action.data
             }
         default:
             return state

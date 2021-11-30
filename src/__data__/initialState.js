@@ -5,5 +5,6 @@ export const InitialState = {
     internalSource: "",
     externalSource: "",
     web: false,
-    deeplinkType: "marketplace"
+    deeplinkType: "marketplace",
+    link: ""
 }

@@ -5,7 +5,7 @@ import {externalSourcesNEW} from "../__data__";
 import {addExternalSource} from "../__data__/actions/externalSourceAction";
 
 const ExternalSource = () => {
-    const [activeSource, setActiveSource] = useState(null)
+    const [activeSource, setActiveSource] = useState("")
 
     const [activeUtmSource, setActiveUtmSource] = useState("")
     const [activeUtmMedium, setActiveUtmMedium] = useState("")
@@ -16,14 +16,16 @@ const ExternalSource = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(addExternalSource(`&utm_source=${activeUtmSource}&utm_medium=${activeUtmMedium}&utm_compaign=${activeUtmCompaign}&utm_content=${activeUtmContent}&utm_term=${activeUtmTerm}`))
-    }, [dispatch, activeUtmSource, activeUtmMedium, activeUtmCompaign, activeUtmContent, activeUtmTerm])
+        if(activeSource === "other") {
+            dispatch(addExternalSource(`&utm_source=${activeUtmSource}&utm_medium=${activeUtmMedium}&utm_compaign=${activeUtmCompaign}&utm_content=${activeUtmContent}&utm_term=${activeUtmTerm}`))
+        }
+    }, [dispatch, activeSource, activeUtmSource, activeUtmMedium, activeUtmCompaign, activeUtmContent, activeUtmTerm])
 
     const handleDeeplink = (item) => {
         setActiveSource(item.code)
-        if(item.code !== "" && item.code !== "other"){
+        if(item.code !== "empty" && item.code !== "other"){
             dispatch(addExternalSource(`&external_source=${item.code}`))
-        } else if (item.code === "other"){
+        } else if (item.code === "other" && item.code !== "empty"){
             dispatch(addExternalSource(`&utm_source=${activeUtmSource}&utm_medium=${activeUtmMedium}&utm_compaign=${activeUtmCompaign}&utm_content=${activeUtmContent}&utm_term=${activeUtmTerm}`))
         } else {
             dispatch(addExternalSource(``))
