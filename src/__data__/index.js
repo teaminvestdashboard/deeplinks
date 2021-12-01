@@ -6,6 +6,7 @@ import {deeplinksNEW} from "./deeplinksNEW";
 import {deeplinksWeb} from "./deeplinksNEW";
 import {screen, screenWeb} from "./screen";
 
+
 export {
     platformNEW,
     deeplinksNEW,
@@ -15,5 +16,5 @@ export {
     externalSourcesNEW,
     externalSourcesWeb,
     internalSources,
-    internalSourceWeb
+    internalSourceWeb,
 }

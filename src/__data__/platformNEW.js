@@ -36,12 +36,12 @@ export const platformNEW = [
     //     appendCode: false,
     //     ext: "no"
     // },
-    {
-        id: "web",
-        tab_id: 4,
-        name: "Web",
-        base: "https://online.sberbank.ru/CSAFront/service.do",
-        appendCode: true,
-        ext: "smart"
-    }
+    // {
+    //     id: "web",
+    //     tab_id: 4,
+    //     name: "Web",
+    //     base: "https://online.sberbank.ru/CSAFront/service.do",
+    //     appendCode: true,
+    //     ext: "smart"
+    // }
 ];

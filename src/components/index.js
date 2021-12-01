@@ -5,5 +5,4 @@ export {default as Screen} from "./screen";
 export {default as InternalSource} from "./internalSource";
 export {default as ExternalSource} from "./externalSource";
 export {default as QrCode} from "./qr";
-export {default as Reload} from "./reload"
 export {default as Info} from "./info"

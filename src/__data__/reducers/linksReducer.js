@@ -15,7 +15,6 @@ const LinksReducer = (state = InitialState, action) => {
         case ADD_PLATFORM :
             return {
                 ...state,
-                ...InitialState,
                 platform: action.data,
             }
         case ADD_DEEPLINK :
@@ -23,8 +22,6 @@ const LinksReducer = (state = InitialState, action) => {
                 ...state,
                 deeplink: action.data,
                 screen: "",
-                internalSource: "",
-                externalSource: "",
             }
         case ADD_SCREEN :
             return {
