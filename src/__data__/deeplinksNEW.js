@@ -1,20 +1,29 @@
 export const deeplinksNEW = [
     {
         id: "marketplace",
+        tab_id: 1,
         name: "Витрина",
         path: "pfm/marketplace",
-        webPath: "",
     },
     {
         id: "pif",
+        tab_id: 2,
         name: "Продукты ПИФ",
         path: "welfare/invest-pif/product",
-        webPath: "",
     },
     {
         id: "trust",
+        tab_id: 3,
         name: "Продукты ДУ",
         path: "investments/tm/product/card",
-        webPath: "",
     },
+]
+
+export const deeplinksWeb = [
+    {
+        id: "marketplace",
+        tab_id: 4,
+        name: "Витрина",
+        path: "",
+    }
 ]

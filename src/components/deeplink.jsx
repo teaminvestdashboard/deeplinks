@@ -1,12 +1,15 @@
 import {useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
-import {deeplinksNEW} from "../__data__";
+import {deeplinksNEW, deeplinksWeb} from "../__data__";
 import {addDeeplink, addDeeplinkType} from "../__data__/actions/deeplinkAction";
 
-const Deeplink = () => {
-    const [activeDeeplink, setActiveDeeplink] = useState(null)
+const Deeplink = ({isChange}) => {
+    const [activeDeeplink, setActiveDeeplink] = useState(isChange)
+    const isWeb = useSelector(({Links}) => Links.web)
     const dispatch = useDispatch();
+
+    const target = isWeb ? deeplinksWeb: deeplinksNEW
 
     const handleDeeplink = (item) => {
         setActiveDeeplink(item.id)
@@ -18,7 +21,7 @@ const Deeplink = () => {
         <div className={"block"}>
             <p className={"block-name"}>Куда перейти</p>
             <div className={"block-wrapper"}>
-                {deeplinksNEW.map((item) => {
+                {target.map((item) => {
                     return (
                         <div className={"block-item"} key={item.id}>
                             <input

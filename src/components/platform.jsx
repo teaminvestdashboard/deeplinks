@@ -4,15 +4,16 @@ import {addPlatform, webPlatform} from "../__data__/actions/platformAction";
 import {useState} from "react";
 
 const Platform = () => {
-    const [activePlatform, setActivePlatform] = useState(null)
+    const [activePlatform, setActivePlatform] = useState(0)
     const dispatch = useDispatch();
 
     const handlePlatform = (item) => {
-        setActivePlatform(item.id)
+        setActivePlatform(item.tab_id)
         dispatch(addPlatform(item.base))
         if(item.id === "web") {
             dispatch(webPlatform())
         }
+
     }
 
     return (
@@ -28,7 +29,7 @@ const Platform = () => {
                             id={`new${item.id}`}
                             value={item.id}
                             onChange={() => handlePlatform(item)}
-                            checked={item.id === activePlatform}
+                            checked={item.tab_id === activePlatform}
                         />
                         <label htmlFor={`new${item.id}`}>{item.name}</label>
                     </div>

@@ -15,13 +15,16 @@ const LinksReducer = (state = InitialState, action) => {
         case ADD_PLATFORM :
             return {
                 ...state,
+                ...InitialState,
                 platform: action.data,
-                web: false
             }
         case ADD_DEEPLINK :
             return {
                 ...state,
-                deeplink: action.data
+                deeplink: action.data,
+                screen: "",
+                internalSource: "",
+                externalSource: "",
             }
         case ADD_SCREEN :
             return {
@@ -31,12 +34,14 @@ const LinksReducer = (state = InitialState, action) => {
         case ADD_INTERNAL_SOURCE :
             return {
                 ...state,
-                internalSource: action.data
+                internalSource: action.data,
+                externalSource: ""
             }
         case ADD_EXTERNAL_SOURCE :
             return {
                 ...state,
-                externalSource: action.data
+                externalSource: action.data,
+                internalSource: ""
             }
         case WEB_ACTIVE :
             return {

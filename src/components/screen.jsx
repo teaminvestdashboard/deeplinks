@@ -1,18 +1,25 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {screen} from "../__data__";
+import {screen, screenWeb} from "../__data__";
 import {addScreen} from "../__data__/actions/screenAction";
 
 const Screen = () => {
-    const [activeScreen, setActiveScreen] = useState(null)
+    const [activeScreen, setActiveScreen] = useState(0)
     const deeplinkType = useSelector(({Links}) => Links.deeplinkType)
     const dispatch = useDispatch();
-    const screenItems = screen.find(item => item.code === deeplinkType)
+    const isWeb = useSelector(({Links}) => Links.web)
+    const target = isWeb ? screenWeb : screen
+    const screenItems = target.find(item => item.code === deeplinkType)
 
     const handleDeeplink = (item) => {
         setActiveScreen(item.code)
-        dispatch(addScreen(`?${screenItems.param}=${item.code}`))
+        if(isWeb) {
+            dispatch(addScreen(`?${screenItems.param}=%2F${item.code}`))
+        } else {
+            dispatch(addScreen(`?${screenItems.param}=${item.code}`))
+        }
     }
+
 
     return (
         <div className={"block"}>

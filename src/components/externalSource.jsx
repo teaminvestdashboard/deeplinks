@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import {useDispatch} from "react-redux";
-import {externalSourcesNEW} from "../__data__";
+import {useDispatch, useSelector} from "react-redux";
+import {externalSourcesNEW, externalSourcesWeb} from "../__data__";
 
 import {addExternalSource} from "../__data__/actions/externalSourceAction";
 
@@ -15,6 +15,9 @@ const ExternalSource = () => {
 
     const dispatch = useDispatch();
 
+    const isWeb = useSelector(({Links}) => Links.web)
+    const target = isWeb ? externalSourcesWeb : externalSourcesNEW
+
     useEffect(() => {
         if(activeSource === "other") {
             dispatch(addExternalSource(`&utm_source=${activeUtmSource}&utm_medium=${activeUtmMedium}&utm_compaign=${activeUtmCompaign}&utm_content=${activeUtmContent}&utm_term=${activeUtmTerm}`))
@@ -23,21 +26,22 @@ const ExternalSource = () => {
 
     const handleDeeplink = (item) => {
         setActiveSource(item.code)
-        if(item.code !== "empty" && item.code !== "other"){
+        if(item.code !== "empty" && item.code !== "other" && !isWeb){
             dispatch(addExternalSource(`&external_source=${item.code}`))
         } else if (item.code === "other" && item.code !== "empty"){
             dispatch(addExternalSource(`&utm_source=${activeUtmSource}&utm_medium=${activeUtmMedium}&utm_compaign=${activeUtmCompaign}&utm_content=${activeUtmContent}&utm_term=${activeUtmTerm}`))
+        } else if (isWeb && item.code !== "empty") {
+            dispatch(addExternalSource(`?from=${item.code}`))
         } else {
             dispatch(addExternalSource(``))
         }
-
     }
 
     return (
         <div className={"block"}>
             <p className={"block-name"}>Внешний переход</p>
             <div className={"block-wrapper"}>
-                {externalSourcesNEW.map((item) => {
+                {target.map((item) => {
                     return (
                         <div className={"block-item"} key={item.code}>
                             <input
