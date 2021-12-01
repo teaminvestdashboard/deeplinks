@@ -64,4 +64,11 @@
 }
 .wrapper{
   display: flex;
+  margin-bottom: 20px;
+}
+.container{
+  margin: 20px
+}
+.reload{
+  margin: 50px 0px
 }
