@@ -5,12 +5,11 @@ const Info = () => {
 
     return(
         <div>
-            <p>platform: {links.platform}</p>
-            <p>deeplinkType: {links.deeplinkType}</p>
-            <p>deeplink: {links.deeplink}</p>
-            <p>screen: {links.screen}</p>
-            <p>internalSource: {links.internalSource}</p>
-            <p>externalSource: {links.externalSource}</p>
+            <p>Платформа: {links.platform}</p>
+            <p>Куда перейти: {links.deeplink}</p>
+            <p>Экран: {links.screen}</p>
+            <p>Внутренний переход: {links.internalSource}</p>
+            <p>Внешний переход: {links.externalSource}</p>
         </div>
     )
 }
