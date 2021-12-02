@@ -6,7 +6,8 @@ import {
     ADD_PLATFORM,
     ADD_SCREEN,
     WEB_ACTIVE,
-    ADD_LINK
+    ADD_LINK,
+    RESET_DATA
 } from "../consts";
 
 
@@ -54,6 +55,11 @@ const LinksReducer = (state = InitialState, action) => {
             return {
                 ...state,
                 link: action.data
+            }
+        case RESET_DATA:
+            return {
+                ...InitialState,
+                reset: action.data
             }
         default:
             return state

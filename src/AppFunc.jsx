@@ -1,33 +1,30 @@
 import './App.css';
 import {
-    Deeplink,
-    ExternalSource,
-    Form,
-    Info,
-    InternalSource,
-    Link,
-    Platform,
-    QrCode,
-    Reload,
-    Screen
+    Container,
 } from "./components";
+import {useState} from "react";
+import {useDispatch} from "react-redux";
+import {resetData} from "./__data__/actions/platformAction";
 
 
 const AppFunc = () => {
+    const [isWeb, setWeb] = useState(false)
+    const [reset, setReset] = useState(true)
+    const dispatch = useDispatch()
+     const handleClick = (bool) => {
+        setWeb(bool);
+        dispatch(resetData(reset))
+    }
 
     return (
-        <div className={"container"}>
-            <Link/>
-            <div className={"wrapper"}>
-                <Platform/>
-                <Deeplink/>
-                <Screen/>
-                <InternalSource/>
-                <ExternalSource/>
-            </div>
-            <QrCode/>
-            <Info/>
-        </div>
+        <>
+            <button onClick={() => handleClick(false)}>Mobile</button>
+            <button onClick={() => handleClick(true)}>Web</button>
+            {!isWeb ?
+                <Container isWeb={false}/> :
+                <Container isWeb={true}/>
+            }
+        </>
     )
 }
 

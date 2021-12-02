@@ -21,7 +21,7 @@ export const deeplinksNEW = [
 
 export const deeplinksWeb = [
     {
-        id: "marketplace",
+        id: "webmarketplace",
         tab_id: 4,
         name: "Витрина",
         path: "",

@@ -45,3 +45,14 @@ export const platformNEW = [
     //     ext: "smart"
     // }
 ];
+
+export const platformWeb = [
+    {
+        id: "web",
+        tab_id: 4,
+        name: "Web",
+        base: "https://online.sberbank.ru/CSAFront/service.do",
+        appendCode: true,
+        ext: "smart"
+    }
+]

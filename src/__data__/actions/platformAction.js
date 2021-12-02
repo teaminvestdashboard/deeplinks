@@ -1,4 +1,4 @@
-import {ADD_PLATFORM, WEB_ACTIVE} from "../consts";
+import {ADD_PLATFORM, RESET_DATA, WEB_ACTIVE} from "../consts";
 
 export const addPlatform = (value) => ({
     type: ADD_PLATFORM,
@@ -8,4 +8,9 @@ export const addPlatform = (value) => ({
 export const webPlatform = () => ({
     type: WEB_ACTIVE,
     data: true
+})
+
+export const resetData = (value) => ({
+    type: RESET_DATA,
+    data: value
 })

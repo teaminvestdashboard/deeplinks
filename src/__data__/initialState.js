@@ -6,5 +6,6 @@ export const InitialState = {
     externalSource: "",
     web: false,
     deeplinkType: "marketplace",
-    link: ""
+    link: "",
+    reset: false,
 }

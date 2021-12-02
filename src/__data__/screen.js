@@ -127,7 +127,7 @@ export const screen = [
 
 export const screenWeb = [
     {
-        code: "marketplace",
+        code: "webmarketplace",
         name: "Витрина",
         param: "srvUrl",
         options: [

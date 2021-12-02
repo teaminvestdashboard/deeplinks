@@ -4,8 +4,9 @@ import {externalSourcesNEW, externalSourcesWeb} from "../__data__";
 
 import {addExternalSource} from "../__data__/actions/externalSourceAction";
 
-const ExternalSource = () => {
-    const [activeSource, setActiveSource] = useState("")
+const ExternalSource = ({isWeb}) => {
+    const reset = useSelector(({Links}) => Links.reset)
+    const [activeSource, setActiveSource] = useState(reset ? 0 : null)
 
     const [activeUtmSource, setActiveUtmSource] = useState("")
     const [activeUtmMedium, setActiveUtmMedium] = useState("")
@@ -15,7 +16,6 @@ const ExternalSource = () => {
 
     const dispatch = useDispatch();
 
-    const isWeb = useSelector(({Links}) => Links.web)
     const target = isWeb ? externalSourcesWeb : externalSourcesNEW
 
     useEffect(() => {
@@ -46,7 +46,7 @@ const ExternalSource = () => {
                         <div className={"block-item"} key={item.code}>
                             <input
                                 type={"radio"}
-                                name={"externalSourceNEW"}
+                                name={isWeb ? "externalSourceWeb" : "externalSourceNEW"}
                                 id={`new${item.code}`}
                                 value={item.code}
                                 onChange={() => handleDeeplink(item)}

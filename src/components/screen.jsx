@@ -1,15 +1,18 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {screen, screenWeb} from "../__data__";
 import {addScreen} from "../__data__/actions/screenAction";
 
-const Screen = () => {
-    const [activeScreen, setActiveScreen] = useState(0)
+const Screen = ({isWeb}) => {
+    const reset = useSelector(({Links}) => Links.reset)
+    const [activeScreen, setActiveScreen] = useState(reset ? 0 : null)
     const deeplinkType = useSelector(({Links}) => Links.deeplinkType)
+
     const dispatch = useDispatch();
-    const isWeb = useSelector(({Links}) => Links.web)
     const target = isWeb ? screenWeb : screen
-    const screenItems = target.find(item => item.code === deeplinkType)
+    const screenItems = isWeb ?
+        target.find(item => item.code === "webmarketplace") :
+        target.find(item => item.code === deeplinkType)
 
     const handleDeeplink = (item) => {
         setActiveScreen(item.code)
@@ -19,6 +22,7 @@ const Screen = () => {
             dispatch(addScreen(`?${screenItems.param}=${item.code}`))
         }
     }
+    console.log("screen", activeScreen)
 
 
     return (
@@ -30,7 +34,7 @@ const Screen = () => {
                             <div className={"block-item"} key={item.code}>
                                 <input
                                     type={"radio"}
-                                    name={"screenNEW"}
+                                    name={isWeb ? "screenWeb" : "screenNEW"}
                                     id={`new${item.code}`}
                                     value={item.code}
                                     onChange={() => handleDeeplink(item)}

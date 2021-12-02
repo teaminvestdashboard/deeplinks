@@ -6,3 +6,5 @@ export {default as InternalSource} from "./internalSource";
 export {default as ExternalSource} from "./externalSource";
 export {default as QrCode} from "./qr";
 export {default as Info} from "./info"
+
+export {default as Container} from "./container"

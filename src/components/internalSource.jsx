@@ -3,10 +3,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {internalSources, internalSourceWeb} from "../__data__";
 import {addInternalSource} from "../__data__/actions/internalSourceAction";
 
-const InternalSource = () => {
-    const [activeSource, setActiveSource] = useState(null)
+const InternalSource = ({isWeb}) => {
+    const reset = useSelector(({Links}) => Links.reset)
+    const [activeSource, setActiveSource] = useState(reset? 0 : null)
     const dispatch = useDispatch();
-    const isWeb = useSelector(({Links}) => Links.web)
+
     const target = isWeb ? internalSourceWeb : internalSources
 
     const handleDeeplink = (item) => {
@@ -30,7 +31,7 @@ const InternalSource = () => {
                         <div className={"block-item"} key={item.code}>
                             <input
                                 type={"radio"}
-                                name={"internalSourceNEW"}
+                                name={isWeb ? "internalSourceWeb" : "internalSourceNEW"}
                                 id={`new${item.code}`}
                                 value={item.code}
                                 onChange={() => handleDeeplink(item)}
