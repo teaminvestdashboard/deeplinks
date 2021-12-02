@@ -1,8 +1,9 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {deeplinksNEW, deeplinksWeb} from "../__data__";
 import {addDeeplink, addDeeplinkType} from "../__data__/actions/deeplinkAction";
+import {FormControl, FormControlLabel, Radio, RadioGroup, Typography} from "@mui/material";
 
 const Deeplink = ({isWeb}) => {
     const reset = useSelector(({Links}) => Links.reset)
@@ -17,27 +18,34 @@ const Deeplink = ({isWeb}) => {
         dispatch(addDeeplinkType(item.id))
     }
 
-    console.log("deeplink", activeDeeplink)
-
     return (
             <div className={"block"}>
-                <p className={"block-name"}>Куда перейти</p>
+                <Typography variant="h6" component="h2">
+                    Куда перейти
+                </Typography>
+
                 <div className={"block-wrapper"}>
-                    {target.map((item) => {
-                        return (
-                            <div className={"block-item"} key={item.id}>
-                                <input
-                                    type={"radio"}
-                                    name={isWeb ? "targetWeb" : "targetNEW"}
-                                    id={`new${item.id}`}
-                                    value={item.path}
-                                    onChange={() => handleDeeplink(item)}
-                                    checked={item.id === activeDeeplink}
-                                />
-                                <label htmlFor={`new${item.id}`}>{item.name}</label>
-                            </div>
-                        )
-                    })}
+                    <FormControl component="fieldset">
+                        <RadioGroup
+                            name={isWeb ? "targetWeb" : "targetNEW"}
+                        >
+                            {target.map((item) => {
+                                return (
+
+                                    <div className={"block-item"} key={item.id}>
+                                        <FormControlLabel
+                                            value={item.path}
+                                            control={<Radio />}
+                                            label={item.name}
+                                            id={`new${item.id}`}
+                                            onChange={() => handleDeeplink(item)}
+                                            checked={item.id === activeDeeplink}
+                                        />
+                                    </div>
+                                )
+                            })}
+                        </RadioGroup>
+                    </FormControl>
                 </div>
             </div>
 

@@ -1,7 +1,8 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {screen, screenWeb} from "../__data__";
 import {addScreen} from "../__data__/actions/screenAction";
+import {FormControl, FormControlLabel, Radio, RadioGroup, Typography} from "@mui/material";
 
 const Screen = ({isWeb}) => {
     const reset = useSelector(({Links}) => Links.reset)
@@ -22,28 +23,34 @@ const Screen = ({isWeb}) => {
             dispatch(addScreen(`?${screenItems.param}=${item.code}`))
         }
     }
-    console.log("screen", activeScreen)
-
 
     return (
         <div className={"block"}>
-            <p className={"block-name"}>Экран</p>
+            <Typography variant="h6" component="h2">
+                Экран
+            </Typography>
             <div className={"block-wrapper"}>
-                {screenItems.options.map((item) => {
-                        return (
-                            <div className={"block-item"} key={item.code}>
-                                <input
-                                    type={"radio"}
-                                    name={isWeb ? "screenWeb" : "screenNEW"}
-                                    id={`new${item.code}`}
-                                    value={item.code}
-                                    onChange={() => handleDeeplink(item)}
-                                    checked={item.code === activeScreen}
-                                />
-                                <label htmlFor={`new${item.code}`}>{item.name}</label>
-                            </div>
-                        )
-                })}
+                <FormControl component="fieldset">
+                    <RadioGroup
+                        name={isWeb ? "screenWeb" : "screenNEW"}
+                    >
+                        {screenItems.options.map((item) => {
+                            return (
+
+                                <div className={"block-item"} key={item.code}>
+                                    <FormControlLabel
+                                        value={item.code}
+                                        control={<Radio />}
+                                        label={item.name}
+                                        id={`new${item.code}`}
+                                        onChange={() => handleDeeplink(item)}
+                                        checked={item.code === activeScreen}
+                                    />
+                                </div>
+                            )
+                        })}
+                    </RadioGroup>
+                </FormControl>
             </div>
         </div>
     )

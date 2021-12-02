@@ -2,6 +2,7 @@ import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {internalSources, internalSourceWeb} from "../__data__";
 import {addInternalSource} from "../__data__/actions/internalSourceAction";
+import {FormControl, FormControlLabel, Radio, RadioGroup, Typography} from "@mui/material";
 
 const InternalSource = ({isWeb}) => {
     const reset = useSelector(({Links}) => Links.reset)
@@ -24,23 +25,31 @@ const InternalSource = ({isWeb}) => {
 
     return (
         <div className={"block"}>
-            <p className={"block-name"}>Внутренний переход</p>
+            <Typography variant="h6" component="h2">
+                Внутренний переход
+            </Typography>
             <div className={"block-wrapper"}>
-                {target.map((item) => {
-                    return (
-                        <div className={"block-item"} key={item.code}>
-                            <input
-                                type={"radio"}
-                                name={isWeb ? "internalSourceWeb" : "internalSourceNEW"}
-                                id={`new${item.code}`}
-                                value={item.code}
-                                onChange={() => handleDeeplink(item)}
-                                checked={item.code === activeSource}
-                            />
-                            <label htmlFor={`new${item.code}`}>{item.name}</label>
-                        </div>
-                    )
-                })}
+                <FormControl component="fieldset">
+                    <RadioGroup
+                        name={isWeb ? "internalSourceWeb" : "internalSourceNEW"}
+                    >
+                        {target.map((item) => {
+                            return (
+
+                                <div className={"block-item"} key={item.code}>
+                                    <FormControlLabel
+                                        value={item.code}
+                                        control={<Radio />}
+                                        label={item.name}
+                                        id={`new${item.code}`}
+                                        onChange={() => handleDeeplink(item)}
+                                        checked={item.code === activeSource}
+                                    />
+                                </div>
+                            )
+                        })}
+                    </RadioGroup>
+                </FormControl>
             </div>
         </div>
     )

@@ -2,6 +2,7 @@ import {platformNEW, platformWeb} from "../__data__";
 import {useDispatch} from "react-redux";
 import {addPlatform, webPlatform} from "../__data__/actions/platformAction";
 import {useState} from "react";
+import {FormControl, FormControlLabel, Radio, RadioGroup, Typography} from "@mui/material";
 
 const Platform = ({isWeb}) => {
     const [activePlatform, setActivePlatform] = useState(0)
@@ -19,23 +20,31 @@ const Platform = ({isWeb}) => {
 
     return (
         <div className={"block"}>
-            <p className={"block-name"}>Платформа</p>
+            <Typography variant="h6" component="h2">
+                Платформа
+            </Typography>
             <div className={"block-wrapper"}>
-                {target.map((item) => {
-                    return (
-                    <div className={"block-item"} key={item.id}>
-                        <input
-                            type={"radio"}
-                            name={isWeb ? "platformWeb" : "platformNEW"}
-                            id={`new${item.id}`}
-                            value={item.id}
-                            onChange={() => handlePlatform(item)}
-                            checked={item.tab_id === activePlatform}
-                        />
-                        <label htmlFor={`new${item.id}`}>{item.name}</label>
-                    </div>
-                    )
-                })}
+                <FormControl component="fieldset">
+                    <RadioGroup
+                        name={isWeb ? "platformWeb" : "platformNEW"}
+                    >
+                        {target.map((item) => {
+                            return (
+
+                                <div className={"block-item"} key={item.id}>
+                                    <FormControlLabel
+                                        value={item.id}
+                                        control={<Radio />}
+                                        label={item.name}
+                                        id={`new${item.id}`}
+                                        onChange={() => handlePlatform(item)}
+                                        checked={item.tab_id === activePlatform}
+                                    />
+                                </div>
+                            )
+                        })}
+                    </RadioGroup>
+                </FormControl>
             </div>
         </div>
     )

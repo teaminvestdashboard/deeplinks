@@ -66,9 +66,15 @@
   display: flex;
   margin-bottom: 20px;
 }
-.container{
+.window{
   margin: 20px
 }
 .reload{
   margin: 50px 0px
+}
+.block-input{
+  margin-bottom: 20px;
+}
+.button-container{
+  margin-bottom: 20px;
 }
