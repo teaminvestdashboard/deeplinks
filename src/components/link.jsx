@@ -1,8 +1,9 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {addLink} from "../__data__/actions/linkAction";
+import {Link} from "@mui/material";
 
-const Link = () => {
+const LinkWrap = () => {
     const links = useSelector(({Links}) => Links);
     const path = `${links.platform}${links.deeplink}${links.screen}${links.internalSource}${links.externalSource}`
     const dispatch = useDispatch();
@@ -10,8 +11,12 @@ const Link = () => {
         dispatch(addLink(path))
     }, [dispatch, path])
     return (
-        <a href={path} target="_blank" rel="noreferrer">{path}</a>
+        <div className={"link-wrap"}>
+            <Link href={path} underline="hover" variant="h5">
+                {path}
+            </Link>
+        </div>
     )
 }
 
-export default Link
+export default LinkWrap

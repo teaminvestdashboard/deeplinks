@@ -72,9 +72,15 @@
 .reload{
   margin: 50px 0px
 }
+.block{
+  margin-right: 20px;
+}
 .block-input{
   margin-bottom: 20px;
 }
 .button-container{
+  margin-bottom: 20px;
+}
+.link-wrap{
   margin-bottom: 20px;
 }

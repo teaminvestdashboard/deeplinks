@@ -1,9 +1,9 @@
-import {Deeplink, ExternalSource, Info, InternalSource, Link, Platform, QrCode, Screen} from "./index";
+import {Deeplink, ExternalSource, Info, InternalSource, LinkWrap, Platform, QrCode, Screen} from "./index";
 
 const Container = ({isWeb}) => {
     return(
         <div className={"container"}>
-            <Link/>
+            <LinkWrap/>
             <div className={"wrapper"}>
                 <Platform isWeb={isWeb}/>
                 <Deeplink isWeb={isWeb}/>
