@@ -14,8 +14,8 @@ const Deeplink = ({isWeb}) => {
 
     const handleDeeplink = (item) => {
         setActiveDeeplink(item.id)
-        dispatch(addDeeplink(item.path))
-        dispatch(addDeeplinkType(item.id))
+        dispatch(addDeeplink(item.title))
+        dispatch(addDeeplinkType(item.name))
     }
 
     return (
@@ -36,8 +36,8 @@ const Deeplink = ({isWeb}) => {
                                         <FormControlLabel
                                             value={item.path}
                                             control={<Radio />}
-                                            label={item.name}
-                                            id={`new${item.id}`}
+                                            label={item.title}
+                                            id={item.id}
                                             onChange={() => handleDeeplink(item)}
                                             checked={item.id === activeDeeplink}
                                         />

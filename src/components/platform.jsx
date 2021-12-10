@@ -11,7 +11,7 @@ const Platform = ({isWeb}) => {
     const target = isWeb ? platformWeb : platformNEW
 
     const handlePlatform = (item) => {
-        setActivePlatform(item.tab_id)
+        setActivePlatform(item.id)
         dispatch(addPlatform(item.base))
         if(item.id === "web") {
             dispatch(webPlatform())
@@ -35,10 +35,10 @@ const Platform = ({isWeb}) => {
                                     <FormControlLabel
                                         value={item.id}
                                         control={<Radio />}
-                                        label={item.name}
+                                        label={item.title}
                                         id={`new${item.id}`}
                                         onChange={() => handlePlatform(item)}
-                                        checked={item.tab_id === activePlatform}
+                                        checked={item.id === activePlatform}
                                     />
                                 </div>
                             )

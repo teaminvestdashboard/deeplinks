@@ -5,7 +5,7 @@ import {Link} from "@mui/material";
 
 const LinkWrap = () => {
     const links = useSelector(({Links}) => Links);
-    const path = `${links.platform}${links.deeplink}${links.screen}${links.internalSource}${links.externalSource}`
+    const path = `${links.platform}${links.screen}${links.internalSource}${links.externalSource}`
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(addLink(path))

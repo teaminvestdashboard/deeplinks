@@ -16,13 +16,14 @@ const Screen = ({isWeb}) => {
         target.find(item => item.code === deeplinkType)
 
     const handleDeeplink = (item) => {
-        setActiveScreen(item.code)
+        setActiveScreen(item.path)
         if(isWeb) {
-            dispatch(addScreen(`?${screenItems.param}=%2F${item.code}`))
+            dispatch(addScreen(item.path))
         } else {
-            dispatch(addScreen(`?${screenItems.param}=${item.code}`))
+            dispatch(addScreen(item.path))
         }
     }
+    console.log(screenItems)
 
     return (
         <div className={"block"}>
@@ -37,14 +38,14 @@ const Screen = ({isWeb}) => {
                         {screenItems.options.map((item) => {
                             return (
 
-                                <div className={"block-item"} key={item.code}>
+                                <div className={"block-item"} key={item.id}>
                                     <FormControlLabel
-                                        value={item.code}
+                                        value={item.path}
                                         control={<Radio />}
                                         label={item.name}
-                                        id={`new${item.code}`}
+                                        id={item.id}
                                         onChange={() => handleDeeplink(item)}
-                                        checked={item.code === activeScreen}
+                                        checked={item.path === activeScreen}
                                     />
                                 </div>
                             )

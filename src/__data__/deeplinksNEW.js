@@ -1,29 +1,89 @@
 export const deeplinksNEW = [
     {
-        id: "marketplace",
-        tab_id: 1,
-        name: "Витрина",
+        name: "marketplace",
+        id: 1,
+        title: "Витрина",
         path: "pfm/marketplace",
     },
     {
-        id: "pif",
-        tab_id: 2,
-        name: "Продукты ПИФ",
+        name: "dopmarketplace",
+        id: 2,
+        title: "Подвитрины",
+        path: "pfm/marketplace",
+    },
+    {
+        name: "services",
+        id: 3,
+        title: "Сервисы",
+        path: "",
+    },
+    {
+        name: "selection",
+        id: 4,
+        title: "Подборки",
+        path: "pfm/marketplace",
+    },
+    {
+        name: "categories",
+        id: 5,
+        title: "Категории",
+        path: "pfm/marketplace",
+    },
+    {
+        name: "pif",
+        id: 6,
+        title: "Продукты ПИФ",
         path: "welfare/invest-pif/product",
     },
     {
-        id: "trust",
-        tab_id: 3,
-        name: "Продукты ДУ",
+        name: "trust",
+        id: 7,
+        title: "Продукты ДУ",
         path: "investments/tm/product/card",
+    },
+    {
+        name: "zpif",
+        id: 8,
+        title: "ЗПИФ",
+        path: "pfm/marketplace",
+    },
+    {
+        name: "pension",
+        id: 9,
+        title: "Пенсионные продукты",
+        path: "",
+    },
+    {
+        name: "iis",
+        id: 10,
+        title: "Продукты ИИС",
+        path: "investments/tm/product/card",
+    },
+    {
+        name: "nszh",
+        id: 11,
+        title: "НСЖ",
+        path: "pfm/marketplace",
+    },
+    {
+        name: "invesmentsloss",
+        id: 12,
+        title: "Инвестиции без потерь",
+        path: "pfm/marketplace",
+    },
+    {
+        name: "otherProducts",
+        id: 13,
+        title: "Другие продукты",
+        path: "pfm/marketplace",
     },
 ]
 
 export const deeplinksWeb = [
     {
-        id: "webmarketplace",
-        tab_id: 4,
-        name: "Витрина",
+        name: "webmarketplace",
+        id: 4,
+        title: "Витрина",
         path: "",
     }
 ]
