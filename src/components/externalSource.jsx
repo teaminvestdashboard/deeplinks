@@ -14,23 +14,33 @@ const ExternalSource = ({isWeb}) => {
     const [activeUtmCompaign, setActiveUtmCompaign] = useState("")
     const [activeUtmContent, setActiveUtmContent] = useState("")
     const [activeUtmTerm, setActiveUtmTerm] = useState("")
+    const [activeUtm, setUtm] = useState("")
 
     const dispatch = useDispatch();
 
     const target = isWeb ? externalSourcesWeb : externalSourcesNEW
 
+    const handleUtm = () => {
+        const tempSource = activeUtmSource === "" ?  "" : `&utm_source=${activeUtmSource}`;
+        const tempMedium = activeUtmMedium === "" ? "" : `&utm_medium=${activeUtmMedium}`;
+        const tempCompaign = activeUtmCompaign === "" ? "" : `&utm_compaign=${activeUtmCompaign}`;
+        const tempContent = activeUtmContent === "" ? "" : `&utm_content=${activeUtmContent}`;
+        const tempTerm = activeUtmTerm === "" ? "" : `&utm_term=${activeUtmTerm}`;
+        setUtm( `${tempSource}${tempMedium}${tempCompaign}${tempContent}${tempTerm}`)
+    }
     useEffect(() => {
         if(activeSource === "other") {
-            dispatch(addExternalSource(`&utm_source=${activeUtmSource}&utm_medium=${activeUtmMedium}&utm_compaign=${activeUtmCompaign}&utm_content=${activeUtmContent}&utm_term=${activeUtmTerm}`))
+            dispatch(addExternalSource(activeUtm))
         }
-    }, [dispatch, activeSource, activeUtmSource, activeUtmMedium, activeUtmCompaign, activeUtmContent, activeUtmTerm])
+    }, [dispatch, activeUtm, activeSource])
 
     const handleDeeplink = (item) => {
         setActiveSource(item.code)
+
         if(item.code !== "empty" && item.code !== "other" && !isWeb){
             dispatch(addExternalSource(`&external_source=${item.code}`))
         } else if (item.code === "other" && item.code !== "empty"){
-            dispatch(addExternalSource(`&utm_source=${activeUtmSource}&utm_medium=${activeUtmMedium}&utm_compaign=${activeUtmCompaign}&utm_content=${activeUtmContent}&utm_term=${activeUtmTerm}`))
+            dispatch(addExternalSource(activeUtm))
         } else if (isWeb && item.code !== "empty") {
             dispatch(addExternalSource(`?from=${item.code}`))
         } else {
@@ -72,7 +82,10 @@ const ExternalSource = ({isWeb}) => {
                         label="utm_source"
                         variant="outlined"
                         value={activeUtmSource}
-                        onChange={(e) => setActiveUtmSource(e.currentTarget.value)}
+                        onChange={(e) => {
+                            setActiveUtmSource(e.currentTarget.value);
+                            handleUtm();
+                        }}
                     />
                 </div>
                 <div className={"block-input"}>
@@ -82,7 +95,10 @@ const ExternalSource = ({isWeb}) => {
                         label="utm_medium"
                         variant="outlined"
                         value={activeUtmMedium}
-                        onChange={(e) => setActiveUtmMedium(e.currentTarget.value)}
+                        onChange={(e) => {
+                            setActiveUtmMedium(e.currentTarget.value);
+                            handleUtm();
+                        }}
                     />
                 </div>
                 <div className={"block-input"}>
@@ -92,7 +108,10 @@ const ExternalSource = ({isWeb}) => {
                         label="utm_compaign"
                         variant="outlined"
                         value={activeUtmCompaign}
-                        onChange={(e) => setActiveUtmCompaign(e.currentTarget.value)}
+                        onChange={(e) => {
+                            setActiveUtmCompaign(e.currentTarget.value);
+                            handleUtm();
+                        }}
                     />
                 </div>
                 <div className={"block-input"}>
@@ -102,7 +121,10 @@ const ExternalSource = ({isWeb}) => {
                         label="utm_content"
                         variant="outlined"
                         value={activeUtmContent}
-                        onChange={(e) => setActiveUtmContent(e.currentTarget.value)}
+                        onChange={(e) => {
+                            setActiveUtmContent(e.currentTarget.value);
+                            handleUtm();
+                        }}
                     />
                 </div>
                 <div className={"block-input"}>
@@ -112,7 +134,10 @@ const ExternalSource = ({isWeb}) => {
                         label="utm_term"
                         variant="outlined"
                         value={activeUtmTerm}
-                        onChange={(e) => setActiveUtmTerm(e.currentTarget.value)}
+                        onChange={(e) => {
+                            setActiveUtmTerm(e.currentTarget.value);
+                            handleUtm();
+                        }}
                     />
                 </div>
             </div>
