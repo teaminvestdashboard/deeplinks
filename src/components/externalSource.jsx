@@ -20,6 +20,7 @@ const ExternalSource = ({isWeb}) => {
 
     const target = isWeb ? externalSourcesWeb : externalSourcesNEW
 
+
     const handleUtm = () => {
         const tempSource = activeUtmSource === "" ?  "" : `&utm_source=${activeUtmSource}`;
         const tempMedium = activeUtmMedium === "" ? "" : `&utm_medium=${activeUtmMedium}`;
@@ -28,11 +29,13 @@ const ExternalSource = ({isWeb}) => {
         const tempTerm = activeUtmTerm === "" ? "" : `&utm_term=${activeUtmTerm}`;
         setUtm( `${tempSource}${tempMedium}${tempCompaign}${tempContent}${tempTerm}`)
     }
+
     useEffect(() => {
         if(activeSource === "other") {
             dispatch(addExternalSource(activeUtm))
+            handleUtm()
         }
-    }, [dispatch, activeUtm, activeSource])
+    }, [dispatch, activeUtm, activeSource, handleUtm])
 
     const handleDeeplink = (item) => {
         setActiveSource(item.code)
@@ -83,8 +86,8 @@ const ExternalSource = ({isWeb}) => {
                         variant="outlined"
                         value={activeUtmSource}
                         onChange={(e) => {
-                            setActiveUtmSource(e.currentTarget.value);
-                            handleUtm();
+                            setActiveUtmSource(e.target.value);
+
                         }}
                     />
                 </div>
@@ -96,8 +99,7 @@ const ExternalSource = ({isWeb}) => {
                         variant="outlined"
                         value={activeUtmMedium}
                         onChange={(e) => {
-                            setActiveUtmMedium(e.currentTarget.value);
-                            handleUtm();
+                            setActiveUtmMedium(e.target.value);
                         }}
                     />
                 </div>
@@ -109,8 +111,7 @@ const ExternalSource = ({isWeb}) => {
                         variant="outlined"
                         value={activeUtmCompaign}
                         onChange={(e) => {
-                            setActiveUtmCompaign(e.currentTarget.value);
-                            handleUtm();
+                            setActiveUtmCompaign(e.target.value);
                         }}
                     />
                 </div>
@@ -122,8 +123,7 @@ const ExternalSource = ({isWeb}) => {
                         variant="outlined"
                         value={activeUtmContent}
                         onChange={(e) => {
-                            setActiveUtmContent(e.currentTarget.value);
-                            handleUtm();
+                            setActiveUtmContent(e.target.value);
                         }}
                     />
                 </div>
@@ -135,8 +135,7 @@ const ExternalSource = ({isWeb}) => {
                         variant="outlined"
                         value={activeUtmTerm}
                         onChange={(e) => {
-                            setActiveUtmTerm(e.currentTarget.value);
-                            handleUtm();
+                            setActiveUtmTerm(e.target.value);
                         }}
                     />
                 </div>

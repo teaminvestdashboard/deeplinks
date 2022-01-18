@@ -23,7 +23,6 @@ const Screen = ({isWeb}) => {
             dispatch(addScreen(item.path))
         }
     }
-    console.log(screenItems)
 
     return (
         <div className={"block"}>
