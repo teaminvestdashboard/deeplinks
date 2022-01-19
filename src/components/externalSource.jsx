@@ -9,6 +9,8 @@ const ExternalSource = ({isWeb}) => {
     const reset = useSelector(({Links}) => Links.reset)
     const [activeSource, setActiveSource] = useState(reset ? 0 : null)
 
+    const utmArray = ["utm_source", "utm_medium", "utm_compaign", "utm_content", "utm_term"];
+
     const [activeUtmSource, setActiveUtmSource] = useState("")
     const [activeUtmMedium, setActiveUtmMedium] = useState("")
     const [activeUtmCompaign, setActiveUtmCompaign] = useState("")
@@ -21,6 +23,29 @@ const ExternalSource = ({isWeb}) => {
     const dispatch = useDispatch();
 
     const target = isWeb ? externalSourcesWeb : externalSourcesNEW
+
+    const handleStateUtm = (id, value) => {
+
+        switch (id){
+            case "utm_source":
+                setActiveUtmSource(value);
+                break;
+            case "utm_medium":
+                setActiveUtmMedium(value);
+                break;
+            case "utm_compaign":
+                setActiveUtmCompaign(value);
+                break;
+            case "utm_content":
+                setActiveUtmContent(value);
+                break;
+            case "utm_term":
+                setActiveUtmTerm(value);
+                break;
+            default:
+                break;
+        }
+    }
 
 
     const handleUtm = () => {
@@ -46,9 +71,9 @@ const ExternalSource = ({isWeb}) => {
 
         if(item.code !== "empty" && item.code !== "utm" && item.code !=="diff" && !isWeb){
             dispatch(addExternalSource(`&external_source=${item.code}`))
-        } else if (item.code === "utm" && item.code !== "empty"){
+        } else if (item.code === "utm"){
             dispatch(addExternalSource(activeUtm))
-        } else if(item.code === "diff" && item.code !== "empty"){
+        } else if(item.code === "diff"){
             dispatch(addExternalSource(`&external_source=${activeDiff}`))
         } else if (isWeb && item.code !== "empty") {
             dispatch(addExternalSource(`?from=${item.code}`))
@@ -101,7 +126,6 @@ const ExternalSource = ({isWeb}) => {
                                                 value={activeDiff}
                                                 onChange={(e) => {
                                                     setDiff(e.target.value);
-                                                    console.log(e.target.value)
                                                 }}
                                             />
                                         </div>
@@ -112,67 +136,21 @@ const ExternalSource = ({isWeb}) => {
                         })}
                     </RadioGroup>
                 </FormControl>
-                <div className={"block-input"}>
-                    <TextField
-                        name={"utm_source"}
-                        id={"newutem_source"}
-                        label="utm_source"
-                        variant="outlined"
-                        value={activeUtmSource}
-                        onChange={(e) => {
-                            setActiveUtmSource(e.target.value);
-
-                        }}
-                    />
-                </div>
-                <div className={"block-input"}>
-                    <TextField
-                        name={"utm_medium"}
-                        id={"newutm_medium"}
-                        label="utm_medium"
-                        variant="outlined"
-                        value={activeUtmMedium}
-                        onChange={(e) => {
-                            setActiveUtmMedium(e.target.value);
-                        }}
-                    />
-                </div>
-                <div className={"block-input"}>
-                    <TextField
-                        name={"utm_compaign"}
-                        id={"newutm_compaign"}
-                        label="utm_compaign"
-                        variant="outlined"
-                        value={activeUtmCompaign}
-                        onChange={(e) => {
-                            setActiveUtmCompaign(e.target.value);
-                        }}
-                    />
-                </div>
-                <div className={"block-input"}>
-                    <TextField
-                        name={"utm_content"}
-                        id={"newutm_content"}
-                        label="utm_content"
-                        variant="outlined"
-                        value={activeUtmContent}
-                        onChange={(e) => {
-                            setActiveUtmContent(e.target.value);
-                        }}
-                    />
-                </div>
-                <div className={"block-input"}>
-                    <TextField
-                        name={"utm_term"}
-                        id={"newutm_term"}
-                        label="utm_term"
-                        variant="outlined"
-                        value={activeUtmTerm}
-                        onChange={(e) => {
-                            setActiveUtmTerm(e.target.value);
-                        }}
-                    />
-                </div>
+                {utmArray.map((item) => {
+                    return (
+                        <div className={"block-input"} key={item}>
+                            <TextField
+                                name={item}
+                                id={item}
+                                label={item}
+                                variant="outlined"
+                                onChange={(e) => {
+                                    handleStateUtm(item, e.target.value)
+                                }}
+                            />
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
