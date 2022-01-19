@@ -16,6 +16,8 @@ const ExternalSource = ({isWeb}) => {
     const [activeUtmTerm, setActiveUtmTerm] = useState("")
     const [activeUtm, setUtm] = useState("")
 
+    const [activeDiff, setDiff] = useState("")
+
     const dispatch = useDispatch();
 
     const target = isWeb ? externalSourcesWeb : externalSourcesNEW
@@ -31,19 +33,23 @@ const ExternalSource = ({isWeb}) => {
     }
 
     useEffect(() => {
-        if(activeSource === "other") {
+        if(activeSource === "utm") {
             dispatch(addExternalSource(activeUtm))
             handleUtm()
+        } else if (activeSource === "diff"){
+            dispatch(addExternalSource(`&external_source=${activeDiff}`))
         }
-    }, [dispatch, activeUtm, activeSource, handleUtm])
+    }, [dispatch, activeUtm, activeSource, activeDiff, handleUtm])
 
     const handleDeeplink = (item) => {
         setActiveSource(item.code)
 
-        if(item.code !== "empty" && item.code !== "other" && !isWeb){
+        if(item.code !== "empty" && item.code !== "utm" && item.code !=="diff" && !isWeb){
             dispatch(addExternalSource(`&external_source=${item.code}`))
-        } else if (item.code === "other" && item.code !== "empty"){
+        } else if (item.code === "utm" && item.code !== "empty"){
             dispatch(addExternalSource(activeUtm))
+        } else if(item.code === "diff" && item.code !== "empty"){
+            dispatch(addExternalSource(`&external_source=${activeDiff}`))
         } else if (isWeb && item.code !== "empty") {
             dispatch(addExternalSource(`?from=${item.code}`))
         } else {
@@ -62,19 +68,47 @@ const ExternalSource = ({isWeb}) => {
                         name={isWeb ? "externalSourceWeb" : "externalSourceNEW"}
                     >
                         {target.map((item) => {
-                            return (
+                            if(item.code !== "diff") {
+                                return(
+                                    <div className={"block-item"} key={item.code}>
+                                        <FormControlLabel
+                                            value={item.code}
+                                            control={<Radio />}
+                                            label={item.name}
+                                            id={`new${item.code}`}
+                                            onChange={() => handleDeeplink(item)}
+                                            checked={item.code === activeSource}
+                                        />
+                                    </div>
+                                )
+                            } else {
+                                return(
+                                    <div className={"block-item"} key={item.code}>
+                                        <FormControlLabel
+                                            value={item.code}
+                                            control={<Radio />}
+                                            label={item.name}
+                                            id={`new${item.code}`}
+                                            onChange={() => handleDeeplink(item)}
+                                            checked={item.code === activeSource}
+                                        />
+                                        <div className={"block-input"}>
+                                            <TextField
+                                                name={"diff"}
+                                                id={"diff"}
+                                                label="Другое"
+                                                variant="outlined"
+                                                value={activeDiff}
+                                                onChange={(e) => {
+                                                    setDiff(e.target.value);
+                                                    console.log(e.target.value)
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
 
-                                <div className={"block-item"} key={item.code}>
-                                    <FormControlLabel
-                                        value={item.code}
-                                        control={<Radio />}
-                                        label={item.name}
-                                        id={`new${item.code}`}
-                                        onChange={() => handleDeeplink(item)}
-                                        checked={item.code === activeSource}
-                                    />
-                                </div>
-                            )
+                                )
+                            }
                         })}
                     </RadioGroup>
                 </FormControl>

@@ -52,10 +52,16 @@ export const externalSourcesNEW = [
     //     name: "QR-код в ВСП",
     // },
     {
-        code: "other",
+        code: "diff",
         id: 5,
-        name: "Другой (utm)"
+        name: "Другое"
     },
+    {
+        code: "utm",
+        id: 6,
+        name: "UTM"
+    },
+
 ];
 
 export const externalSourcesWeb = [
@@ -85,8 +91,8 @@ export const externalSourcesWeb = [
         name: "Сайт",
     },
     {
-        code: "other",
+        code: "utm",
         id: 11,
-        name: "Другой (utm)"
+        name: "UTM"
     },
 ]
