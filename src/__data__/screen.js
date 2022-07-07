@@ -95,6 +95,21 @@ export const screen = [
                 id: 4,
                 name: "С налоговым вычетом",
             },
+            {
+                path: "pfm/marketplace?marketPlaceId=newItemSelection",
+                id: 5,
+                name: "Новинки",
+            },
+            {
+                path: "pfm/marketplace?marketPlaceId=regularIncomeSelection",
+                id: 6,
+                name: "Регулярные выплаты",
+            },
+            {
+                path: "pfm/marketplace?marketPlaceId=russianEconomySelection",
+                id: 7,
+                name: "Российская экономика",
+            },
         ]
     },
     {
