@@ -1,21 +1,14 @@
-
-import {externalSourcesNEW, externalSourcesWeb} from "./externalSourceNEW";
-import {internalSources, internalSourceWeb} from "./internalSources";
-import {platformNEW, platformWeb} from "./platformNEW";
-import {deeplinksNEW} from "./deeplinksNEW";
-import {deeplinksWeb} from "./deeplinksNEW";
-import {screen, screenWeb} from "./screen";
+import {externalSources} from "./externalSource";
+import {internalSources} from "./internalSources";
+import {platform} from "./platform";
+import {deeplinks} from "./deeplinks";
+import {screen} from "./screen";
 
 
 export {
-    platformNEW,
-    platformWeb,
-    deeplinksNEW,
-    deeplinksWeb,
+    platform,
+    deeplinks,
     screen,
-    screenWeb,
-    externalSourcesNEW,
-    externalSourcesWeb,
+    externalSources,
     internalSources,
-    internalSourceWeb,
 }

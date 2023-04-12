@@ -1,14 +1,13 @@
-import {InitialState} from "../initialState";
+import {InitialState} from '../initialState'
 import {
     ADD_DEEPLINK, ADD_DEEPLINK_TYPE,
     ADD_EXTERNAL_SOURCE,
     ADD_INTERNAL_SOURCE,
     ADD_PLATFORM,
     ADD_SCREEN,
-    WEB_ACTIVE,
     ADD_LINK,
     RESET_DATA
-} from "../consts";
+} from '../consts'
 
 
 const LinksReducer = (state = InitialState, action) => {
@@ -41,11 +40,6 @@ const LinksReducer = (state = InitialState, action) => {
                 externalSource: action.data,
                 internalSource: ""
             }
-        case WEB_ACTIVE :
-            return {
-                ...state,
-                web: action.data
-            }
         case ADD_DEEPLINK_TYPE :
             return {
                 ...state,
@@ -59,7 +53,6 @@ const LinksReducer = (state = InitialState, action) => {
         case RESET_DATA:
             return {
                 ...InitialState,
-                reset: action.data
             }
         default:
             return state
