@@ -1,11 +1,12 @@
 export const InitialState = {
+    product: null,
+    base: null,
     platform: "",
     deeplink: "",
     screen: "",
     internalSource: "",
     externalSource: "",
-    web: false,
-    deeplinkType: "marketplace",
+    // web: false,
+    deeplinkType: "",
     link: "",
-    reset: false,
 }

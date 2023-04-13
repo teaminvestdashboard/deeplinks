@@ -1,16 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {Provider} from 'react-redux'
+import reportWebVitals from './reportWebVitals'
+import store from './__data__/store'
+import App from './App'
 import './index.css';
-import reportWebVitals from './reportWebVitals';
-import {Provider} from "react-redux";
-import store from "./__data__/store";
-import AppFunc from "./AppFunc";
+
 
 ReactDOM.render(
   <React.StrictMode>
-      <Provider store={store}>
-        <AppFunc/>
-      </Provider>
+    <Provider store={store}>
+      <App/>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

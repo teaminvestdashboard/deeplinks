@@ -1,7 +1,8 @@
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {addLink} from "../__data__/actions/linkAction";
-import {Link} from "@mui/material";
+import {useDispatch, useSelector} from 'react-redux'
+import {useEffect} from 'react'
+import {addLink} from '../__data__/actions/linkAction'
+import {Link} from '@mui/material'
+
 
 const LinkWrap = () => {
     const links = useSelector(({Links}) => Links);
@@ -10,12 +11,13 @@ const LinkWrap = () => {
     useEffect(() => {
         dispatch(addLink(path))
     }, [dispatch, path])
+
     return (
-        <div className={"link-wrap"}>
-            <Link href={path} underline="hover" variant="h5">
-                {path}
-            </Link>
-        </div>
+      <div className={"link-wrap"}>
+          <Link href={path} underline="hover" variant="h5" gutterBottom>
+              {path}
+          </Link>
+      </div>
     )
 }
 
