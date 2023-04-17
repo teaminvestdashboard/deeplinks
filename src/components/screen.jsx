@@ -5,11 +5,12 @@ import {addScreen} from '../__data__/actions/screenAction'
 import {FormControl, FormControlLabel, Radio, RadioGroup, Typography} from '@mui/material'
 import SettingsContext from '../Settings'
 import {getTarget} from '../utils'
+import {PRODUCT} from '../constants'
 
 
 const Screen = () => {
     const [activeScreen, setActiveScreen] = useState(null)
-    const deeplinkType = useSelector(({Links}) => Links.deeplinkType) || "marketplace"
+    const deeplinkType = useSelector(({Links}) => Links.deeplinkType)
     const settings = useContext(SettingsContext)
     const dispatch = useDispatch()
     const {isWeb, product} = settings
@@ -20,9 +21,11 @@ const Screen = () => {
     const target = getTarget(screen, settings)
     if (!target.length) { return null }
 
-    const screenItems = isWeb ?
-      target.find(item => item.code === "webmarketplace") :
-      target.find(item => item.code === deeplinkType)
+    const defaultDeeplinkType = product === PRODUCT.INVESTMENTS_DASHBOARD ? 'marketplace' : 'skor'
+
+    const screenItems = deeplinkType ?
+      target.find(item => item.code === deeplinkType) :
+      target.find(item => item.code === defaultDeeplinkType)
 
     const handleDeeplink = (item) => {
         setActiveScreen(item.path)

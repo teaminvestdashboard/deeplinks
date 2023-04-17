@@ -103,90 +103,46 @@ export const internalSources = {
             },
         ],
     },
-    // TODO: fill portfolio analytics internal sources data
     [PRODUCT.PORTFOLIO_ANALYTICS]: {
         [APP.MOBILE]: [
             {
-                code: "faq",
+                code: "widget",
                 id: 20,
-                name: "FaQ по скору"
+                name: "Виджет на экране накопления"
             },
             {
-                code: "analytic",
+                code: "smart_search",
                 id: 21,
-                name: "Аналитика портфеля"
+                name: "Строка поиска"
             },
             {
-                code: "smart",
+                code: "virtual",
                 id: 22,
-                name: "Умный поиск"
+                name: "Виртуальный ассистент"
             },
             {
                 code: "total",
                 id: 23,
-                name: "Всего средств"
+                name: "Сервисы"
             },
-            {
-                code: "virtassist",
-                id: 24,
-                name: "Виртуальный ассистент"
-            },
-            {
-                code: "health",
-                id: 25,
-                name: "Сбер здоровье"
-            },
-            {
-                code: "banner",
-                id: 26,
-                name: "Из баннера Совета"
-            },
-            {
-                code: "finplan",
-                id: 27,
-                name: "Из ФинПлана"
-            },
+
+
         ],
         [APP.WEB]: [
             {
-                code: "faq",
-                id: 28,
-                name: "FaQ по скору"
+                code: "widget",
+                id: 24,
+                name: "Виджет на экране накопления"
             },
             {
-                code: "analityc",
-                id: 29,
-                name: "Аналитика портфеля"
+                code: "smart_search",
+                id: 25,
+                name: "Строка поиска"
             },
             {
-                code: "smart",
-                id: 30,
-                name: "Умный поиск"
-            },
-            {
-                code: "total",
-                id: 31,
-                name: "Всего средств"
-            },
-            {
-                code: "virtassist",
-                id: 32,
+                code: "virtual",
+                id: 26,
                 name: "Виртуальный ассистент"
-            },
-            {
-                code: "health",
-                id: 33,
-                name: "Сбер здоровье"
-            },
-            {
-                code: "banner",
-                id: 34,
-                name: "Из баннера Совета"
-            },
-            {
-                code: "finplan",
-                id: 35,
-                name: "Из ФинПлана"
             },
         ],
     }

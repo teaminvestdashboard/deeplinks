@@ -39,14 +39,13 @@ export const platform = {
             }
         ]
     },
-    // TODO: fill portfolio analytics platform data
     [PRODUCT.PORTFOLIO_ANALYTICS] : {
         [APP.MOBILE]: [
             {
                 name: "android_prom",
                 id: 1,
                 title: "Android ПРОМ",
-                base: "android",
+                base: "android-app://ru.sberbankmobile/android-app/ru.sberbankmobile/",
                 appendCode: true,
                 ext: "mobile"
             },
@@ -54,7 +53,7 @@ export const platform = {
                 name: "android_test",
                 id: 2,
                 title: "Android ТЕСТ",
-                base: "android",
+                base: "android-app://ru.sberbankmobile_alpha/android-app/ru.sberbankmobile_alpha/investments/portfolioAnalysis/",
                 appendCode: true,
                 ext: "mobile"
             },
@@ -62,7 +61,7 @@ export const platform = {
                 name: "ios",
                 id: 3,
                 title: "iOS",
-                base: "ios",
+                base: "sberbankonline://",
                 appendCode: true,
                 ext: "mobile"
             },

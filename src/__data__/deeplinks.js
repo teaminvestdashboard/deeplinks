@@ -92,7 +92,6 @@ export const deeplinks = {
             }
         ]
     },
-    // TODO: fill portfolio analytics deeplinks data
     [PRODUCT.PORTFOLIO_ANALYTICS]: {
         [APP.MOBILE]: [
             {
@@ -104,8 +103,8 @@ export const deeplinks = {
         ],
         [APP.WEB]: [
             {
-                name: "",
-                id: 16,
+                name: "skor",
+                id: 15,
                 title: "Скор",
                 path: "skor",
             },
