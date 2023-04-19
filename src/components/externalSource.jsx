@@ -5,6 +5,7 @@ import {addExternalSource} from '../__data__/actions/externalSourceAction'
 import {FormControl, FormControlLabel, Radio, RadioGroup, TextField, Typography} from '@mui/material'
 import SettingsContext from '../Settings'
 import {getTarget} from '../utils'
+import {PRODUCT} from '../constants'
 
 
 const ExternalSource = () => {
@@ -61,13 +62,17 @@ const ExternalSource = () => {
     }, [])
 
     const handleUtm = useCallback(() => {
-        const tempSource = activeUtmSource === "" ?  "" : `&utm_source=${activeUtmSource}`;
-        const tempMedium = activeUtmMedium === "" ? "" : `&utm_medium=${activeUtmMedium}`;
-        const tempCompaign = activeUtmCompaign === "" ? "" : `&utm_compaign=${activeUtmCompaign}`;
-        const tempContent = activeUtmContent === "" ? "" : `&utm_content=${activeUtmContent}`;
-        const tempTerm = activeUtmTerm === "" ? "" : `&utm_term=${activeUtmTerm}`;
-        setUtm( `${tempSource}${tempMedium}${tempCompaign}${tempContent}${tempTerm}`)
-    }, [activeUtmCompaign, activeUtmContent, activeUtmMedium, activeUtmSource, activeUtmTerm])
+        const amp = '&'
+        const tempSource = activeUtmSource === "" ?  "" : `utm_source=${activeUtmSource}`;
+        const tempMedium = activeUtmMedium === "" ? "" : `utm_medium=${activeUtmMedium}`;
+        const tempCompaign = activeUtmCompaign === "" ? "" : `utm_compaign=${activeUtmCompaign}`;
+        const tempContent = activeUtmContent === "" ? "" : `utm_content=${activeUtmContent}`;
+        const tempTerm = activeUtmTerm === "" ? "" : `utm_term=${activeUtmTerm}`;
+
+        const utmList = [tempSource, tempMedium, tempCompaign, tempContent, tempTerm].filter(v => !!v)
+        const utmParams = utmList.length ? `?${utmList.join(amp)}` : ''
+        setUtm( utmParams )
+    }, [activeUtmCompaign, activeUtmContent, activeUtmMedium, activeUtmSource, activeUtmTerm, product])
 
     useEffect(() => {
         if(activeSource === "utm") {
@@ -81,12 +86,16 @@ const ExternalSource = () => {
     const handleDeeplink = (item) => {
         setActiveSource(item.code)
 
-        if(item.code !== "empty" && item.code !== "utm" && item.code !=="diff" && !settings.isWeb){
+        if(item.code !== "empty" && item.code !== "utm" && item.code !=="diff" && !settings.isWeb && product === PRODUCT.INVESTMENTS_DASHBOARD){
             dispatch(addExternalSource(`&external_source=${item.code}`))
+        } else if(item.code !== "empty" && item.code !== "utm" && item.code !=="diff" && !settings.isWeb && product !== PRODUCT.INVESTMENTS_DASHBOARD){
+            dispatch(addExternalSource(`?external_source=${item.code}`))
         } else if (item.code === "utm"){
             dispatch(addExternalSource(activeUtm))
-        } else if(item.code === "diff"){
+        } else if(item.code === "diff" && product === PRODUCT.INVESTMENTS_DASHBOARD){
             dispatch(addExternalSource(`&external_source=${activeDiff}`))
+        }  else if(item.code === "diff" && product !== PRODUCT.INVESTMENTS_DASHBOARD){
+            dispatch(addExternalSource(`?external_source=${activeDiff}`))
         } else if (settings.isWeb && item.code !== "empty") {
             dispatch(addExternalSource(`?from=${item.code}`))
         } else {

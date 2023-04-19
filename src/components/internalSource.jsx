@@ -5,6 +5,7 @@ import {addInternalSource} from '../__data__/actions/internalSourceAction'
 import {FormControl, FormControlLabel, Radio, RadioGroup, Typography} from '@mui/material'
 import SettingsContext from '../Settings'
 import {getTarget} from '../utils'
+import {PRODUCT} from '../constants'
 
 
 const InternalSource = () => {
@@ -26,8 +27,10 @@ const InternalSource = () => {
 
     const handleDeeplink = (item) => {
         setActiveSource(item.code)
-        if(item.code !== "" && !isWeb){
+        if(item.code !== "" && !isWeb && product === PRODUCT.INVESTMENTS_DASHBOARD){
             dispatch(addInternalSource(`&internal_source=${item.code}`))
+        } else if(item.code !== "" && !isWeb && product === PRODUCT.PORTFOLIO_ANALYTICS){
+            dispatch(addInternalSource(`?internal_source=${item.code}`))
         } else if (isWeb){
             dispatch(addInternalSource(`?from=${item.code}`))
         } else {
