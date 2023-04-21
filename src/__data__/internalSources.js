@@ -125,24 +125,34 @@ export const internalSources = {
                 id: 23,
                 name: "Сервисы"
             },
+            {
+                code: "internal_diff",
+                id: 24,
+                name: "Другое"
+            },
 
 
         ],
         [APP.WEB]: [
             {
                 code: "widget",
-                id: 24,
+                id: 25,
                 name: "Виджет на экране накопления"
             },
             {
                 code: "smart_search",
-                id: 25,
+                id: 26,
                 name: "Строка поиска"
             },
             {
                 code: "virtual",
-                id: 26,
+                id: 27,
                 name: "Виртуальный ассистент"
+            },
+            {
+                code: "internal_diff",
+                id: 28,
+                name: "Другое"
             },
         ],
     }

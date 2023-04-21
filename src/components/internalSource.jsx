@@ -2,7 +2,7 @@ import {useContext, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {internalSources} from '../__data__'
 import {addInternalSource} from '../__data__/actions/internalSourceAction'
-import {FormControl, FormControlLabel, Radio, RadioGroup, Typography} from '@mui/material'
+import {FormControl, FormControlLabel, Radio, RadioGroup, TextField, Typography} from '@mui/material'
 import SettingsContext from '../Settings'
 import {getTarget} from '../utils'
 import {PRODUCT} from '../constants'
@@ -11,6 +11,7 @@ import {PRODUCT} from '../constants'
 const InternalSource = () => {
     const externalSource = useSelector(({Links}) => Links.externalSource)
     const [activeSource, setActiveSource] = useState(null)
+    const [activeDiff, setDiff] = useState("")
     const dispatch = useDispatch()
     const settings = useContext(SettingsContext)
     const {isWeb, product} = settings
@@ -23,14 +24,23 @@ const InternalSource = () => {
         }
     }, [externalSource])
 
+    useEffect(() => {
+        if (activeSource === "internal_diff") {
+            dispatch(addInternalSource(`?internal_source=${activeDiff}`))
+        }
+    }, [dispatch, activeSource, activeDiff])
+
     const target = getTarget(internalSources, settings)
 
     const handleDeeplink = (item) => {
         setActiveSource(item.code)
-        if(item.code !== "" && !isWeb && product === PRODUCT.INVESTMENTS_DASHBOARD){
+
+        if(item.code !== "" && item.code !=="internal_diff" && !isWeb && product === PRODUCT.INVESTMENTS_DASHBOARD){
             dispatch(addInternalSource(`&internal_source=${item.code}`))
-        } else if(item.code !== "" && !isWeb && product === PRODUCT.PORTFOLIO_ANALYTICS){
+        } else if(item.code !== "" && item.code !=="internal_diff" && !isWeb && product === PRODUCT.PORTFOLIO_ANALYTICS){
             dispatch(addInternalSource(`?internal_source=${item.code}`))
+        } else if (item.code === "internal_diff"){
+            dispatch(addInternalSource(`?internal_source=`))
         } else if (isWeb){
             dispatch(addInternalSource(`?from=${item.code}`))
         } else {
@@ -48,18 +58,45 @@ const InternalSource = () => {
               <FormControl component="fieldset">
                   <RadioGroup>
                       {target.map((item) => {
-                          return (
-                            <div className={"block-item"} key={item.id}>
-                                <FormControlLabel
-                                  value={item.code}
-                                  control={<Radio />}
-                                  label={item.name}
-                                  id={`new${item.code}`}
-                                  onChange={() => handleDeeplink(item)}
-                                  checked={item.code === activeSource}
-                                />
-                            </div>
-                          )
+                          if(item.code !== "internal_diff") {
+                              return(
+                                <div className={"block-item"} key={item.id}>
+                                    <FormControlLabel
+                                      value={item.code}
+                                      control={<Radio />}
+                                      label={item.name}
+                                      id={`new${item.code}`}
+                                      onChange={() => handleDeeplink(item)}
+                                      checked={item.code === activeSource}
+                                    />
+                                </div>
+                              )
+                          } else {
+                              return(
+                                <div className={"block-item"} key={item.id}>
+                                    <FormControlLabel
+                                      value={item.code}
+                                      control={<Radio />}
+                                      label={item.name}
+                                      id={`new${item.code}`}
+                                      onChange={() => handleDeeplink(item)}
+                                      checked={item.code === activeSource}
+                                    />
+                                    <div className={"block-input"}>
+                                        <TextField
+                                          name={"internal_diff"}
+                                          id={"internal_diff"}
+                                          label="Другое"
+                                          variant="outlined"
+                                          value={activeDiff}
+                                          onChange={(e) => {
+                                              setDiff(e.target.value);
+                                          }}
+                                        />
+                                    </div>
+                                </div>
+                              )
+                          }
                       })}
                   </RadioGroup>
               </FormControl>

@@ -29,6 +29,9 @@ const ExternalSource = () => {
     const {isWeb, product} = settings
     useEffect(() => {
         setActiveSource(null)
+        setDiff('')
+        setUtm('')
+        addExternalSource('')
     }, [isWeb, product])
     useEffect(() => {
         if (internalSource) {
@@ -70,7 +73,8 @@ const ExternalSource = () => {
         const tempTerm = activeUtmTerm === "" ? "" : `utm_term=${activeUtmTerm}`;
 
         const utmList = [tempSource, tempMedium, tempCompaign, tempContent, tempTerm].filter(v => !!v)
-        const utmParams = utmList.length ? `?${utmList.join(amp)}` : ''
+        const prefix = product === PRODUCT.INVESTMENTS_DASHBOARD ? '&' : '?'
+        const utmParams = utmList.length ? `${prefix}${utmList.join(amp)}` : ''
         setUtm( utmParams )
     }, [activeUtmCompaign, activeUtmContent, activeUtmMedium, activeUtmSource, activeUtmTerm, product])
 
@@ -78,8 +82,13 @@ const ExternalSource = () => {
         if(activeSource === "utm") {
             dispatch(addExternalSource(activeUtm))
             handleUtm()
-        } else if (activeSource === "diff"){
-            dispatch(addExternalSource(`&external_source=${activeDiff}`))
+        } else if (activeSource === "diff" || activeSource === 'external-diff'){
+            const prefix = product === PRODUCT.INVESTMENTS_DASHBOARD ? '&' : '?'
+
+            if ((product === PRODUCT.INVESTMENTS_DASHBOARD && activeSource === 'diff') ||
+              (product === PRODUCT.PORTFOLIO_ANALYTICS && activeSource === 'external-diff')) {
+                dispatch(addExternalSource(`${prefix}external_source=${activeDiff}`))
+            }
         }
     }, [dispatch, activeUtm, activeSource, activeDiff, handleUtm])
 
@@ -92,9 +101,9 @@ const ExternalSource = () => {
             dispatch(addExternalSource(`?external_source=${item.code}`))
         } else if (item.code === "utm"){
             dispatch(addExternalSource(activeUtm))
-        } else if(item.code === "diff" && product === PRODUCT.INVESTMENTS_DASHBOARD){
+        } else if((item.code === "diff" || item.code === "external-diff") && product === PRODUCT.INVESTMENTS_DASHBOARD){
             dispatch(addExternalSource(`&external_source=${activeDiff}`))
-        }  else if(item.code === "diff" && product !== PRODUCT.INVESTMENTS_DASHBOARD){
+        }  else if((item.code === "diff" || item.code === "external-diff") && product !== PRODUCT.INVESTMENTS_DASHBOARD){
             dispatch(addExternalSource(`?external_source=${activeDiff}`))
         } else if (settings.isWeb && item.code !== "empty") {
             dispatch(addExternalSource(`?from=${item.code}`))
@@ -104,20 +113,20 @@ const ExternalSource = () => {
     }
 
     return (
-      <div className={"block"}>
+      <div className={'block'}>
           <Typography variant="h6" component="h2">
               Внешний переход
           </Typography>
-          <div className={"block-wrapper"}>
+          <div className={'block-wrapper'}>
               <FormControl component="fieldset">
                   <RadioGroup>
                       {target.map((item) => {
-                          if(item.code !== "diff") {
-                              return(
-                                <div className={"block-item"} key={item.id}>
+                          if (item.code !== 'diff' && item.code !== 'external-diff') {
+                              return (
+                                <div className={'block-item'} key={item.id}>
                                     <FormControlLabel
                                       value={item.code}
-                                      control={<Radio />}
+                                      control={<Radio/>}
                                       label={item.name}
                                       id={`new${item.code}`}
                                       onChange={() => handleDeeplink(item)}
@@ -126,30 +135,29 @@ const ExternalSource = () => {
                                 </div>
                               )
                           } else {
-                              return(
-                                <div className={"block-item"} key={item.id}>
+                              return (
+                                <div className={'block-item'} key={item.id}>
                                     <FormControlLabel
                                       value={item.code}
-                                      control={<Radio />}
+                                      control={<Radio/>}
                                       label={item.name}
                                       id={`new${item.code}`}
                                       onChange={() => handleDeeplink(item)}
                                       checked={item.code === activeSource}
                                     />
-                                    <div className={"block-input"}>
+                                    <div className={'block-input'}>
                                         <TextField
-                                          name={"diff"}
-                                          id={"diff"}
+                                          name={`${item.code}`}
+                                          id={`${item.code}`}
                                           label="Другое"
                                           variant="outlined"
                                           value={activeDiff}
                                           onChange={(e) => {
-                                              setDiff(e.target.value);
+                                              setDiff(e.target.value)
                                           }}
                                         />
                                     </div>
                                 </div>
-
                               )
                           }
                       })}
@@ -157,7 +165,7 @@ const ExternalSource = () => {
               </FormControl>
               {utmArray.map((item) => {
                   return (
-                    <div className={"block-input"} key={item}>
+                    <div className={'block-input'} key={item}>
                         <TextField
                           name={item}
                           id={item}
