@@ -118,7 +118,7 @@ export const externalSources = {
                 name: "SMS",
             },
             {
-                code: "Diff",
+                code: "external-diff",
                 id: 17,
                 name: "Другое"
             },
@@ -150,8 +150,13 @@ export const externalSources = {
                 name: "Сайт",
             },
             {
-                code: "utm",
+                code: "external-diff",
                 id: 24,
+                name: "Другое"
+            },
+            {
+                code: "utm",
+                id: 25,
                 name: "UTM"
             },
         ],

@@ -97,7 +97,7 @@ export const deeplinks = {
             {
                 name: "skor",
                 id: 15,
-                title: "Скор",
+                title: "Аналитика портфеля",
                 path: "skor",
             },
         ],
@@ -105,7 +105,7 @@ export const deeplinks = {
             {
                 name: "skor",
                 id: 15,
-                title: "Скор",
+                title: "Аналитика портфеля",
                 path: "skor",
             },
         ]
