@@ -4,9 +4,9 @@ import {addLink} from '../__data__/actions/linkAction'
 import {Link} from '@mui/material'
 
 
-const LinkWrap = () => {
+const LinkWrap = ({ preparedPath }) => {
     const links = useSelector(({Links}) => Links);
-    const path = `${links.platform}${links.screen}${links.internalSource}${links.externalSource}`
+    const path = preparedPath || `${links.platform}${links.screen}${links.internalSource}${links.externalSource}`
 
     const dispatch = useDispatch();
     useEffect(() => {

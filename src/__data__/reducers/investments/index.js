@@ -1,17 +1,17 @@
-import { InitialState } from '../../initialState'
+import { InitialStateInvestments } from '../../initialState'
 import {
     ADD_DEEPLINK, ADD_DEEPLINK_TYPE,
-    ADD_EXTERNAL_SOURCE,
-    ADD_INTERNAL_SOURCE,
     ADD_PLATFORM,
     ADD_SCREEN,
     ADD_LINK,
     RESET_DATA,
-    ADD_VERSION
+    ADD_VERSION,
+    ADD_SOURCE_TYPE,
+    ADD_SOURCE
 } from '../../consts'
 
 
-const InvestmentsReducer = (state = InitialState, action) => {
+const InvestmentsReducer = (state = InitialStateInvestments, action) => {
     switch (action.type) {
         case ADD_PLATFORM:
             return {
@@ -28,23 +28,25 @@ const InvestmentsReducer = (state = InitialState, action) => {
                 ...state,
                 deeplink: action.data,
                 screen: "",
+                source: "",
+                sourceType: ""
             }
         case ADD_SCREEN:
             return {
                 ...state,
-                screen: action.data
+                screen: action.data,
+                source: "",
+                sourceType: ""
             }
-        case ADD_INTERNAL_SOURCE:
+        case ADD_SOURCE_TYPE:
             return {
                 ...state,
-                internalSource: action.data,
-                externalSource: ""
+                sourceType: action.data,
             }
-        case ADD_EXTERNAL_SOURCE:
+        case ADD_SOURCE:
             return {
                 ...state,
-                externalSource: action.data,
-                internalSource: ""
+                source: action.data,
             }
         case ADD_DEEPLINK_TYPE:
             return {
@@ -58,7 +60,7 @@ const InvestmentsReducer = (state = InitialState, action) => {
             }
         case RESET_DATA:
             return {
-                ...InitialState,
+                ...InitialStateInvestments,
             }
         default:
             return state

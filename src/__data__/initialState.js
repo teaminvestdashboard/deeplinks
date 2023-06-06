@@ -11,3 +11,17 @@ export const InitialState = {
     deeplinkType: "",
     link: "",
 }
+
+export const InitialStateInvestments = {
+    product: null,
+    base: null,
+    platform: "",
+    version: "",
+    deeplink: "",
+    screen: "",
+    sourceType: "",
+    source: "",
+    // web: false,
+    deeplinkType: "",
+    link: "",
+}

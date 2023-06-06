@@ -2,7 +2,7 @@ import React from 'react'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import {useDispatch} from 'react-redux'
 import { addDeeplinkType } from '../../__data__/actions/deeplinkAction';
-import { addVersion } from '../../__data__/actions/investments';
+import { addSource, addSourceType, addVersion } from '../../__data__/actions/investments';
 import { addScreen } from '../../__data__/actions/screenAction';
 
 
@@ -26,6 +26,12 @@ export const Selection = ({ name, id, items, action, type }) => {
         break;
       case "screen":
         dispatch(addScreen(event.target.value.path))
+        break;
+      case "sourcesType":
+        dispatch(addSourceType(event.target.value.code))
+        break;
+      case "sources":
+        dispatch(addSource(event.target.value.code))
         break;
       default:
         break;
