@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { addDeeplink } from '../../__data__/actions/deeplinkAction'
 import { screen } from '../../__data__/investments'
 import { compareVersions } from '../utils'
 import { Selection } from './select'
@@ -13,6 +12,6 @@ export const ScreenWrapper = () => {
   const filteredByVersion = items?.filter((item) => compareVersions(item.availableVersion, version))
 
   return (
-    <Selection name="Экран" id="screen-invest" items={filteredByVersion} action={addDeeplink} type="screen"/>
+    <Selection name="Экран" id="screen-invest" items={filteredByVersion} type="screen"/>
   )
 }

@@ -19,4 +19,9 @@ export const versions = [
     id: 4,
     title: "14.14",
   },
+  {
+    name: "0",
+    id: 5,
+    title: "web"
+  }
 ]

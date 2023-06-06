@@ -1,20 +1,26 @@
 export const platform = [
   {
-    name: "android_prom",
     id: 1,
     title: "Android ПРОМ",
+    name: "Android",
     path: "android-app://ru.sberbankmobile/android-app/ru.sberbankmobile/",
   },
   {
-    name: "android_test",
     id: 2,
     title: "Android ТЕСТ",
+    name: "Android",
     path: "android-app://ru.sberbankmobile_alpha/android-app/ru.sberbankmobile_alpha/",
   },
   {
-    name: "ios",
     id: 3,
     title: "iOS",
+    name: "iOS",
     path: "sberbankonline://",
+  },
+  {
+    id: 4,
+    title: "web",
+    name: "web",
+    path: "https://online.sberbank.ru/CSAFront/service.do",
   },
 ]

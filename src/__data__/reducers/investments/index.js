@@ -7,7 +7,8 @@ import {
     RESET_DATA,
     ADD_VERSION,
     ADD_SOURCE_TYPE,
-    ADD_SOURCE
+    ADD_SOURCE,
+    ADD_PLATFORM_NAME
 } from '../../consts'
 
 
@@ -17,6 +18,11 @@ const InvestmentsReducer = (state = InitialStateInvestments, action) => {
             return {
                 ...state,
                 platform: action.data,
+            }
+        case ADD_PLATFORM_NAME:
+            return {
+                ...state,
+                platformName: action.data,
             }
         case ADD_VERSION:
             return {

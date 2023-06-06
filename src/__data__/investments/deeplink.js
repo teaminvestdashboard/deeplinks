@@ -4,6 +4,7 @@ export const deeplink = [
     id: 1,
     title: "Витрина",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "pfm/marketplace",
   },
   {
@@ -11,6 +12,7 @@ export const deeplink = [
     id: 2,
     title: "Подвитрины",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "pfm/marketplace",
   },
   {
@@ -18,6 +20,7 @@ export const deeplink = [
     id: 3,
     title: "Сервисы",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "",
   },
   {
@@ -25,6 +28,7 @@ export const deeplink = [
     id: 4,
     title: "Подборки",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "pfm/marketplace",
   },
   {
@@ -32,6 +36,7 @@ export const deeplink = [
     id: 5,
     title: "Категории",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "pfm/marketplace",
   },
   {
@@ -39,6 +44,7 @@ export const deeplink = [
     id: 6,
     title: "Продукты ПИФ",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "welfare/invest-pif/product",
   },
   {
@@ -46,6 +52,7 @@ export const deeplink = [
     id: 7,
     title: "Продукты ДУ",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "investments/tm/product/card",
   },
   {
@@ -53,6 +60,7 @@ export const deeplink = [
     id: 8,
     title: "ЗПИФ",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "pfm/marketplace",
   },
   {
@@ -60,6 +68,7 @@ export const deeplink = [
     id: 9,
     title: "Пенсионные продукты",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "",
   },
   {
@@ -67,6 +76,7 @@ export const deeplink = [
     id: 10,
     title: "Продукты ИИС",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "investments/tm/product/card",
   },
   {
@@ -74,6 +84,7 @@ export const deeplink = [
     id: 11,
     title: "НСЖ",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "pfm/marketplace",
   },
   {
@@ -81,6 +92,7 @@ export const deeplink = [
     id: 12,
     title: "Инвестиции без потерь",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "pfm/marketplace",
   },
   {
@@ -88,6 +100,7 @@ export const deeplink = [
     id: 13,
     title: "Другие продукты",
     availableVersion: "0",
+    platforms: [ "iOS", "Android" ],
     path: "pfm/marketplace",
   },
 ]

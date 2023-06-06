@@ -16,6 +16,7 @@ export const InitialStateInvestments = {
     product: null,
     base: null,
     platform: "",
+    platformName: "",
     version: "",
     deeplink: "",
     screen: "",
