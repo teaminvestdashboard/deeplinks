@@ -10,6 +10,7 @@ import { ScreenWrapper } from './screenWrapper'
 import { useSelector } from 'react-redux'
 import { DeeplinkWrapper } from './deeplinkWrapper'
 import { SourcesWrapper } from './sourcesWrapper'
+import { Stack } from '@mui/material'
 
 export const Container = () => {
   const {platform, version, deeplinkType, screen, sourceType, source} = useSelector(({investments}) => investments)
@@ -17,15 +18,19 @@ export const Container = () => {
   const path = `${platform}${screen}${source}`
 
   return (
-    <div className={"container"}>
+    <div className="container">
       <LinkWrap preparedPath={path}/>
-      <div className={"wrapper"}>
-        <Selection name="Платформа" id="platform-invest" items={platformArray} action={addPlatform} type="platform"/>
-        <Selection name="Версии" id="versions-invest" items={versions} action={addPlatform} type="versions"/>
-        {version && <DeeplinkWrapper/>}
-        {version && deeplinkType && <ScreenWrapper/>}
-        {screen && <Selection name="Тип перехода" id="sourcetype-invest" items={sourcesType} action={addPlatform} type="sourcesType"/>}
-        {sourceType && <SourcesWrapper/>}
+      <div className="investments-wrapper">
+        <Stack spacing={2} direction="row" width="100%" marginBottom="20px">
+          <Selection name="Платформа" id="platform-invest" items={platformArray} action={addPlatform} type="platform"/>
+          <Selection name="Версии" id="versions-invest" items={versions} action={addPlatform} type="versions"/>
+          {platform && version && <DeeplinkWrapper/>}
+          {version && deeplinkType && <ScreenWrapper/>}
+        </Stack>
+        <Stack spacing={2} direction="row">
+          {screen && <Selection name="Тип перехода" id="sourcetype-invest" items={sourcesType} action={addPlatform} type="sourcesType"/>}
+          {sourceType && <SourcesWrapper/>}
+        </Stack>
       </div>
       <QrCode/>
       <Info/>

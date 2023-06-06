@@ -42,6 +42,7 @@ const InvestmentsReducer = (state = InitialStateInvestments, action) => {
             return {
                 ...state,
                 sourceType: action.data,
+                source: ""
             }
         case ADD_SOURCE:
             return {
