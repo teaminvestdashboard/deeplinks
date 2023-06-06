@@ -3,14 +3,6 @@
   background: azure;
 }
 
-.App-cell {
-  alignment: top;
-  padding: 20px;
-}
-
-.App-select {
-}
-
 .App-link {
   margin-bottom: 20px;
 }
@@ -28,9 +20,6 @@
   pointer-events: none;
 }
 
-.App-input {
-
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

@@ -1,14 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { screen } from '../../__data__/investments'
+import { screen, screenWeb } from '../../__data__/investments'
 import { compareVersions } from '../utils'
 import { Selection } from './select'
 
 export const ScreenWrapper = () => {
-  const deeplinkType = useSelector(({ investments }) => investments.deeplinkType)
-  const version = useSelector(({ investments }) => investments.version)
+  const { deeplinkType, version, platformName } = useSelector(({ investments }) => investments)
 
-  const items = screen.find((item) => item.code === deeplinkType)?.screens
+  const elements = platformName === "web" ? screenWeb : screen
+
+  const items = elements.find((item) => item.code === deeplinkType)?.screens
   const filteredByVersion = items?.filter((item) => compareVersions(item.availableVersion, version))
 
   return (

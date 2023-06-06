@@ -20,7 +20,7 @@ export const versions = [
     title: "14.14",
   },
   {
-    name: "0",
+    name: "0.0",
     id: 5,
     title: "web"
   }

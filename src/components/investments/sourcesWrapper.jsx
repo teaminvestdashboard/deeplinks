@@ -1,13 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { EXTERNAL, INTERNAL } from '../../constants'
-import { sources } from '../../__data__/investments'
+import { sources, sourcesWeb } from '../../__data__/investments'
 import { Selection } from './select'
 
 export const SourcesWrapper = () => {
-  const sourcesTypeState = useSelector(({ investments }) => investments.sourceType)
+  const { sourceType, platformName } = useSelector(({ investments }) => investments)
 
-  const items = sourcesTypeState === INTERNAL ? sources[INTERNAL] : sources[EXTERNAL]
+  const elements = platformName === "web" ? sourcesWeb : sources
+
+  const items = sourceType === INTERNAL ? elements[INTERNAL] : elements[EXTERNAL]
 
   return (
     <Selection name="Переход из" id="sources-invest" items={items} type="sources"/>

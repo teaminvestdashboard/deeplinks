@@ -12,7 +12,7 @@ import { SourcesWrapper } from './sourcesWrapper'
 import { Stack } from '@mui/material'
 
 export const Container = () => {
-  const { platform, platformName, version, deeplinkType, screen, sourceType, source} = useSelector(({investments}) => investments)
+  const { platform, version, deeplinkType, screen, sourceType, source} = useSelector(({investments}) => investments)
 
   const path = `${platform}${screen}${source}`
 
