@@ -5,14 +5,14 @@ import LinkWrap from '../link'
 import QrCode from '../qr'
 import { Selection } from './select'
 import {addPlatform} from '../../__data__/actions/platformAction'
-import { deeplink, platform, versions } from '../../__data__/investments'
-import { addDeeplink } from '../../__data__/actions/deeplinkAction'
+import { platform, versions } from '../../__data__/investments'
 import { ScreenWrapper } from './screenWrapper'
 import { useSelector } from 'react-redux'
+import { DeeplinkWrapper } from './deeplinkWrapper'
 
 export const Container = () => {
-  const deeplinkType = useSelector(({ investments }) => investments.deeplinkType)
   const version = useSelector(({ investments }) => investments.version)
+  const deeplinkType = useSelector(({ investments }) => investments.deeplinkType)
 
   return (
     <div className={"container"}>
@@ -20,8 +20,8 @@ export const Container = () => {
       <div className={"wrapper"}>
         <Selection name="Платформа" id="platform-invest" items={platform} action={addPlatform} type="platform"/>
         <Selection name="Версии" id="versions-invest" items={versions} action={addPlatform} type="versions"/>
-        <Selection name="Куда перейди" id="deeplink-invest" items={deeplink} action={addDeeplink} type="deeplink"/>
-        {deeplinkType && version && <ScreenWrapper/>}
+        {version && <DeeplinkWrapper/>}
+        {version && deeplinkType && <ScreenWrapper/>}
       </div>
       <QrCode/>
       <Info/>
