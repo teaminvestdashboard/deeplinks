@@ -17,6 +17,7 @@ const InvestmentsReducer = (state = InitialStateInvestments, action) => {
         case ADD_PLATFORM:
             return {
                 ...state,
+                ...InitialStateInvestments,
                 platform: action.data,
             }
         case ADD_PLATFORM_NAME:
@@ -28,6 +29,11 @@ const InvestmentsReducer = (state = InitialStateInvestments, action) => {
             return {
                 ...state,
                 version: action.data,
+                deeplink: "",
+                deeplinkType: "",
+                screen: "",
+                source: "",
+                sourceType: ""
             }
         case ADD_DEEPLINK:
             return {

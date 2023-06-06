@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import {useDispatch} from 'react-redux'
 import { addDeeplink, addDeeplinkType } from '../../__data__/actions/deeplinkAction';
@@ -7,8 +7,8 @@ import { addScreen } from '../../__data__/actions/screenAction';
 import { addPlatform } from '../../__data__/actions/platformAction';
 
 
-export const Selection = ({ name, id, items, action, type }) => {
-  const [value, setValue] = React.useState('');
+export const Selection = ({ name, id, items, type }) => {
+  const [value, setValue] = useState('');
 
   const dispatch = useDispatch();
 

@@ -22,7 +22,7 @@ export const Container = () => {
       <div className="investments-wrapper">
         <Stack spacing={2} direction="row" width="100%" marginBottom="20px">
           <Selection name="Платформа" id="platform-invest" items={platformArray} type="platform"/>
-          <Selection name="Версии" id="versions-invest" items={versions} type="versions"/>
+          {platform && <Selection name="Версии" id="versions-invest" items={versions} type="versions"/>}
           {platform && version && <DeeplinkWrapper/>}
           {version && deeplinkType && <ScreenWrapper/>}
         </Stack>

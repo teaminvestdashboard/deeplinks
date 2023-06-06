@@ -13,8 +13,6 @@ export const InitialState = {
 }
 
 export const InitialStateInvestments = {
-    product: null,
-    base: null,
     platform: "",
     platformName: "",
     version: "",
@@ -22,7 +20,6 @@ export const InitialStateInvestments = {
     screen: "",
     sourceType: "",
     source: "",
-    // web: false,
     deeplinkType: "",
     link: "",
 }
