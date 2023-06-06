@@ -1,6 +1,5 @@
 
 import React from 'react'
-import Info from '../info'
 import LinkWrap from '../link'
 import QrCode from '../qr'
 import { Selection } from './select'
@@ -10,6 +9,7 @@ import { useSelector } from 'react-redux'
 import { DeeplinkWrapper } from './deeplinkWrapper'
 import { SourcesWrapper } from './sourcesWrapper'
 import { Stack } from '@mui/material'
+import { Info } from './info'
 
 export const Container = () => {
   const { platform, version, deeplinkType, screen, sourceType, source} = useSelector(({investments}) => investments)
