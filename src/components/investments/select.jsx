@@ -2,6 +2,7 @@ import React from 'react'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import {useDispatch} from 'react-redux'
 import { addDeeplinkType } from '../../__data__/actions/deeplinkAction';
+import { addVersion } from '../../__data__/actions/investments';
 
 
 export const Selection = ({ name, id, items, action, type }) => {
@@ -18,6 +19,9 @@ export const Selection = ({ name, id, items, action, type }) => {
       case "deeplink":
         dispatch(action(event.target.value.title))
         dispatch(addDeeplinkType(event.target.value.name))
+        break;
+      case "versions":
+        dispatch(addVersion(event.target.value.title))
         break;
       default:
         break;

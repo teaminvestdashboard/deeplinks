@@ -6,3 +6,4 @@ export const ADD_EXTERNAL_SOURCE = "ADD_EXTERNAL_SOURCE";
 export const ADD_DEEPLINK_TYPE = "ADD_DEEPLINK_TYPE";
 export const ADD_LINK = "ADD_LINK";
 export const RESET_DATA = "RESET_DATA";
+export const ADD_VERSION = "ADD_VERSION"
