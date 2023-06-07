@@ -1,24 +1,15 @@
-import {useSelector} from 'react-redux'
-import {Typography} from '@mui/material'
+import React from 'react'
+import { Typography } from '@mui/material'
 
+export const Info = ({ info }) => {
 
-export const Info = () => {
-  const links = useSelector(({ investments }) => investments)
-
-  return(
+  return (
     <div>
-      <Typography variant="h6" component="h2">
-        Платформа: {links.platform.path}
-      </Typography>
-      <Typography variant="h6" component="h2">
-        Куда перейти: {links.deeplink.title}
-      </Typography>
-      <Typography variant="h6" component="h2">
-        Экран: {links.screen.path}
-      </Typography>
-      <Typography variant="h6" component="h2">
-        Переход: {links.source.code}
-      </Typography>
+      {info && info.map((item) => (
+        <Typography key={item.title} variant="h6" component="h2">
+          {item.title}: {item.value}
+        </Typography>
+      ))}
     </div>
   )
 }

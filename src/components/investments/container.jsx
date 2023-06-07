@@ -1,7 +1,7 @@
 
 import React from 'react'
 import LinkWrap from '../link'
-import QrCode from '../qr'
+import { QrCode } from './qr'
 import { Selection } from './select'
 import { platform as platformArray, sourcesType } from '../../__data__/investments'
 import { ScreenWrapper } from './screenWrapper'
@@ -13,9 +13,28 @@ import { Info } from './info'
 import { VersionWrapper } from './versionWrapper'
 
 export const Container = () => {
-  const { platform, version, deeplinkType, screen, sourceType, source} = useSelector(({investments}) => investments)
+  const { platform, version, deeplinkType, deeplink, screen, sourceType, source, link} = useSelector(({investments}) => investments)
 
   const path = `${platform.path || ''}${screen.path || ''}${source.code || ''}`
+
+  const info = [
+    {
+      title: "Платформа",
+      value: platform.path
+    },
+    {
+      title: "Куда перейти",
+      value: deeplink.title
+    },
+    {
+      title: "Экран",
+      value: screen.path
+    },
+    {
+      title: "Переход",
+      value: source.code
+    },
+  ]
 
   return (
     <div className="container">
@@ -32,8 +51,8 @@ export const Container = () => {
           {sourceType && <SourcesWrapper/>}
         </Stack>
       </div>
-      <QrCode/>
-      <Info/>
+      <QrCode path={link}/>
+      <Info info={info}/>
     </div>
   )
 }
