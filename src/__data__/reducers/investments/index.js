@@ -1,4 +1,4 @@
-import { InitialStateInvestments } from '../../db/portfolio/initialState'
+import { InitialStateInvestments } from '../../initialState'
 import {
     ADD_DEEPLINK_INVEST, ADD_DEEPLINK_TYPE_INVEST,
     ADD_PLATFORM_INVEST,

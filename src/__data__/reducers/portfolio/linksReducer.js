@@ -1,4 +1,4 @@
-import {InitialState} from '../../db/portfolio/initialState'
+import {InitialState} from '../../initialState'
 import {
     ADD_DEEPLINK, ADD_DEEPLINK_TYPE,
     ADD_EXTERNAL_SOURCE,
