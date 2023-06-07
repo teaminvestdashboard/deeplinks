@@ -50,7 +50,7 @@ export const deeplink = [
   {
     code: "trust",
     id: 7,
-    title: "Продукты ДУ",
+    title: "Готовые стратегии",
     availableVersion: "0.0",
     platforms: [ "iOS", "Android" ],
     path: "investments/tm/product/card",
@@ -88,16 +88,8 @@ export const deeplink = [
     path: "pfm/marketplace",
   },
   {
-    code: "invesmentsloss",
-    id: 12,
-    title: "Инвестиции без потерь",
-    availableVersion: "0.0",
-    platforms: [ "iOS", "Android" ],
-    path: "pfm/marketplace",
-  },
-  {
     code: "otherProducts",
-    id: 13,
+    id: 12,
     title: "Другие продукты",
     availableVersion: "0.0",
     platforms: [ "iOS", "Android" ],
@@ -105,7 +97,7 @@ export const deeplink = [
   },
   {
     code: "marketplaceWeb",
-    id: 14,
+    id: 13,
     title: "Основная витрина",
     availableVersion: "0.0",
     platforms: [ "web" ],

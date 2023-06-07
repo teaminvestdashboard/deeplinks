@@ -18,6 +18,12 @@ export const platform = [
     path: "sberbankonline://",
   },
   {
+    id: 3,
+    title: "iOS SBOL",
+    name: "iOS",
+    path: "sbolonline://",
+  },
+  {
     id: 4,
     title: "web",
     name: "web",

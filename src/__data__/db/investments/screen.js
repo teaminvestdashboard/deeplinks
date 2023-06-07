@@ -8,12 +8,6 @@ export const screen = [
         title: "Основная витрина инвестиций",
         availableVersion: "0.0",
       },
-      {
-        path: "pfm/marketplace?marketPlaceId=forYouCatalog",
-        id: 2,
-        title: "По уровню риска",
-        availableVersion: "0.0",
-      },
     ]
   },
   {
@@ -57,7 +51,7 @@ export const screen = [
       {
         path: "pfm/marketplace?marketPlaceId=investments_Tutorial",
         id: 2,
-        title: "Обучающее видео",
+        title: "Обучение",
         availableVersion: "0.0",
       },
       {
@@ -78,30 +72,6 @@ export const screen = [
     code: "selection",
     screens: [
       {
-        path: "pfm/marketplace?marketPlaceId=topSolutionsSelection",
-        id: 1,
-        title: "Топ готовых решений",
-        availableVersion: "0.0",
-      },
-      {
-        path: "pfm/marketplace?marketPlaceId=minAmountSelection",
-        id: 2,
-        title: "Минимальная сумма",
-        availableVersion: "0.0",
-      },
-      {
-        path: "pfm/marketplace?marketPlaceId=maxProfitSelection",
-        id: 3,
-        title: "Максимум дохода",
-        availableVersion: "0.0",
-      },
-      {
-        path: "pfm/marketplace?marketPlaceId=regularPayoutsSelection",
-        id: 4,
-        title: "С налоговым вычетом",
-        availableVersion: "0.0",
-      },
-      {
         path: "pfm/marketplace?marketPlaceId=newItemSelection",
         id: 5,
         title: "Новинки",
@@ -117,6 +87,12 @@ export const screen = [
         path: "pfm/marketplace?marketPlaceId=russianEconomySelection",
         id: 7,
         title: "Российская экономика",
+        availableVersion: "0.0",
+      },
+      {
+        path: "pfm/marketplace?marketPlaceId=forYouCatalog",
+        id: 8,
+        title: "По уровню риска",
         availableVersion: "0.0",
       },
     ]
@@ -156,13 +132,13 @@ export const screen = [
       {
         path: "welfare/invest-pif/product?productCode=fund_equity_dn",
         id: 1,
-        title: "Фонд акций Добрыня Никитич",
+        title: "Фонд российских акций",
         availableVersion: "0.0",
       },
       {
         path: "welfare/invest-pif/product?productCode=fund_bond_im",
         id: 2,
-        title: "Фонд облигаций Илья Муромец",
+        title: "Фонд российских облигаций",
         availableVersion: "0.0",
       },
       {
@@ -172,69 +148,51 @@ export const screen = [
         availableVersion: "0.0",
       },
       {
-        path: "welfare/invest-pif/product?productCode=fund_prosp_bonds",
-        id: 4,
-        title: "Фонд перспективных облигаций",
-        availableVersion: "0.0",
-      },
-      {
-        path: "welfare/invest-pif/product?productCode=fund_eurobonds",
-        id: 5,
-        title: "Фонд Еврооблигации",
-        availableVersion: "0.0",
-      },
-      {
         path: "welfare/invest-pif/product?productCode=fund_money",
-        id: 6,
-        title: "Фонд Денежный",
-        availableVersion: "0.0",
-      },
-      {
-        path: "welfare/invest-pif/product?productCode=fund_utilities",
-        id: 7,
-        title: "Фонд Электроэнергетика",
+        id: 4,
+        title: "Фонд Накопительный",
         availableVersion: "0.0",
       },
       {
         path: "welfare/invest-pif/product?productCode=fund_natural_res",
-        id: 8,
+        id: 5,
         title: "Фонд Природные ресурсы",
         availableVersion: "0.0",
       },
       {
-        path: "welfare/invest-pif/product?productCode=fund_global_internet",
+        path: "welfare/invest-pif/product?productCode=fund_local",
+        id: 6,
+        title: "Фонд Локальный",
+        availableVersion: "0.0",
+      },
+      {
+        path: "welfare/invest-pif/product?productCode=fund_conservative_payout",
+        id: 7,
+        title: "Фонд консервативный с выплатой дохода",
+        availableVersion: "0.0",
+      },
+      {
+        path: "welfare/invest-pif/product?productCode=fund_weighted_payout",
+        id: 8,
+        title: "Фонд взвешенный с выплатой дохода",
+        availableVersion: "0.0",
+      },
+      {
+        path: "welfare/invest-pif/product?productCode=fund_bond_payout",
         id: 9,
-        title: "Фонд Глобальный интернет",
+        title: "Фонд облигаций с выплатой дохода",
         availableVersion: "0.0",
       },
       {
-        path: "welfare/invest-pif/product?productCode=fund_consumer_sector",
+        path: "welfare/invest-pif/product?productCode=fund_equity_payout",
         id: 10,
-        title: "Фонд Потребительский сектор",
+        title: "Фонд акций с выплатой дохода",
         availableVersion: "0.0",
       },
       {
-        path: "welfare/invest-pif/product?productCode=fund_financial_sector",
+        path: "welfare/invest-pif/product?productCode=fund_hybrid_payout",
         id: 11,
-        title: "Фонд Финансовый сектор",
-        availableVersion: "0.0",
-      },
-      {
-        path: "welfare/invest-pif/product?productCode=fund_america",
-        id: 12,
-        title: "Фонд Глобальные акции",
-        availableVersion: "0.0",
-      },
-      {
-        path: "welfare/invest-pif/product?productCode=fund_biotech",
-        id: 13,
-        title: "Фонд Биотехнологии",
-        availableVersion: "0.0",
-      },
-      {
-        path: "welfare/invest-pif/product?productCode=fund_gold",
-        id: 14,
-        title: "Фонд Золото",
+        title: "Фонд смешанный с выплатой дохода",
         availableVersion: "0.0",
       },
     ]
@@ -273,33 +231,27 @@ export const screen = [
         availableVersion: "0.0",
       },
       {
-        path: "investments/tm/product/card?productCode=trust_capital2025",
-        id: 6,
-        title: "Стратегия Мой капитал 2025",
+        path: "investments/tm/product/card?productCode=trust_modagressive",
+        id: 5,
+        title: "Умеренно-консервативный портфель",
         availableVersion: "0.0",
       },
       {
-        path: "investments/tm/product/card?productCode=trust_capital2030",
-        id: 7,
-        title: "Стратегия Мой капитал 2030",
+        path: "investments/tm/product/card?productCode=trust_gold",
+        id: 5,
+        title: "Доступное золото",
         availableVersion: "0.0",
       },
       {
-        path: "investments/tm/product/card?productCode=trust_capital2035",
-        id: 8,
-        title: "Стратегия Мой капитал 2035",
+        path: "investments/tm/product/card?productCode=trust_dividend_stock",
+        id: 5,
+        title: "Дивидендные акции",
         availableVersion: "0.0",
       },
       {
-        path: "investments/tm/product/card?productCode=trust_capital2040",
-        id: 9,
-        title: "investments/tm/product/card?productCode=Стратегия Мой капитал 2040",
-        availableVersion: "0.0",
-      },
-      {
-        path: "investments/tm/product/card?productCode=trust_russianbondsfund_rur",
-        id: 10,
-        title: "Стратегия Долларовые облигации",
+        path: "investments/tm/product/card?productCode=trust_halal_investments",
+        id: 5,
+        title: "Халяльные инвестиции",
         availableVersion: "0.0",
       },
     ]
@@ -330,27 +282,51 @@ export const screen = [
     code: "iis",
     screens: [
       {
-        path: "",
-        id: 1,
-        title: "Больше чем ИИС",
-        availableVersion: "0.0",
-      },
-      {
         path: "investments/tm/product/card?productCode=iia_saving",
-        id: 2,
+        id: 1,
         title: "Стратегия ИИС Накопительная",
         availableVersion: "0.0",
       },
       {
         path: "investments/tm/product/card?productCode=iia_roubleshares",
-        id: 3,
+        id: 2,
         title: "Стратегия ИИС Российские облигации",
         availableVersion: "0.0",
       },
       {
         path: "brokerage/agreement/short?action=create&from=marketplace_invest&IIA=1",
-        id: 4,
+        id: 3,
         title: "Индивидуальный инвестиционный счет",
+        availableVersion: "0.0",
+      },
+      {
+        path: "investments/tm/product/card?productCode=iia_conservative",
+        id: 4,
+        title: "Консервативный портфель ИИС",
+        availableVersion: "0.0",
+      },
+      {
+        path: "investments/tm/product/card?productCode=iia_pfpcautious",
+        id: 5,
+        title: "Осторожный портфель ИИС",
+        availableVersion: "0.0",
+      },
+      {
+        path: "investments/tm/product/card?productCode=iia_pfpmoderate",
+        id: 6,
+        title: "Взвешенный портфель ИИС",
+        availableVersion: "0.0",
+      },
+      {
+        path: "investments/tm/product/card?productCode=iia_pfpmodagressive",
+        id: 7,
+        title: "Прогрессивный портфель ИИС",
+        availableVersion: "0.0",
+      },
+      {
+        path: "investments/tm/product/card?productCode=iia_pfpagressive",
+        id: 8,
+        title: "Динамичный портфель ИИС",
         availableVersion: "0.0",
       },
     ]
@@ -364,37 +340,14 @@ export const screen = [
         title: "Билет в будущее",
         availableVersion: "0.0",
       },
-      {
-        path: "",
-        id: 2,
-        title: "Думаю о будущем",
-        availableVersion: "0.0",
-      },
-    ]
-  },
-  {
-    code: "invesmentsloss",
-    screens: [
-      {
-        path: "investments/iliview/product/product?source=Showcase",
-        id: 1,
-        title: "Страхование с инвестдоходом",
-        availableVersion: "0.0",
-      },
     ]
   },
   {
     code: "otherProducts",
     screens: [
       {
-        path: "payments/open-goal",
-        id: 1,
-        title: "Новая цель",
-        availableVersion: "0.0",
-      },
-      {
         path: "payments/open-ima-list",
-        id: 2,
+        id: 1,
         title: "Металлический счет",
         availableVersion: "0.0",
       },
