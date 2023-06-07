@@ -12,6 +12,7 @@ export const ScreenWrapper = () => {
   const items = elements.find((item) => item.code === deeplinkType)?.screens
   const filteredByVersion = items?.filter((item) => compareVersionsFromAndTo(item.availableVersionFrom, item.availableVersionTo, version.name))
 
+
   return (
     <Selection name="Экран" id="screen-invest" items={filteredByVersion} type="screen" initValue={screen}/>
   )

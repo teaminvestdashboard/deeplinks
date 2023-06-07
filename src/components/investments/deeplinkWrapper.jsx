@@ -10,6 +10,7 @@ export const DeeplinkWrapper = () => {
 
   const filteredByVersion = items?.filter((item) => compareVersionsFromAndTo(item.availableVersionFrom, item.availableVersionTo, version.name))
 
+
   return (
     <Selection name="Куда перейди" id="deeplink-invest" items={filteredByVersion} type="deeplink" initValue={deeplink}/>
   )
