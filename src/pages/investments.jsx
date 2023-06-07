@@ -5,7 +5,7 @@ import { Container } from '../components/investments'
 export const Investments = () => {
   return (
     <div className="window">
-      <Typography variant="h2" component="h1" gutterBottom>Конструктор ссылок</Typography>
+      <Typography variant="h2" component="h1" gutterBottom>Витрина инвестиций</Typography>
       <Container/>
     </div>
   )

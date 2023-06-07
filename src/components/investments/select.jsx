@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
-import {useDispatch} from 'react-redux'
-import { addPlatformInvest, addScreenInvest,addDeeplinkInvest, addDeeplinkTypeInvest, addSourceInvest, addSourceTypeInvest, addVersionInvest, addPlatformNameInvest } from '../../__data__/actions/investments'
+import { useDispatch } from 'react-redux'
+import { addPlatformInvest, addScreenInvest, addDeeplinkInvest, addDeeplinkTypeInvest, addSourceInvest, addSourceTypeInvest, addVersionInvest, addPlatformNameInvest } from '../../__data__/actions/investments'
 
 
 export const Selection = ({ name, id, items, type, initValue = "" }) => {
