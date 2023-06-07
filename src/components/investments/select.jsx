@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import {useDispatch} from 'react-redux'
 import { addDeeplink, addDeeplinkType } from '../../__data__/actions/deeplinkAction';
@@ -7,8 +7,14 @@ import { addScreen } from '../../__data__/actions/screenAction';
 import { addPlatform } from '../../__data__/actions/platformAction';
 
 
-export const Selection = ({ name, id, items, type }) => {
-  const [value, setValue] = useState('');
+export const Selection = ({ name, id, items, type, initValue = "" }) => {
+
+  const [value, setValue] = useState(initValue);
+
+  useEffect(() => {
+    setValue(initValue)
+  }, [initValue])
+
 
   const dispatch = useDispatch();
 
@@ -16,24 +22,24 @@ export const Selection = ({ name, id, items, type }) => {
     setValue(event.target.value);
     switch (type) {
       case "platform":
-        dispatch(addPlatform(event.target.value.path))
+        dispatch(addPlatform(event.target.value))
         dispatch(addPlatformName(event.target.value.name))
         break;
       case "deeplink":
-        dispatch(addDeeplink(event.target.value.title))
+        dispatch(addDeeplink(event.target.value))
         dispatch(addDeeplinkType(event.target.value.code))
         break;
       case "versions":
-        dispatch(addVersion(event.target.value.name))
+        dispatch(addVersion(event.target.value))
         break;
       case "screen":
-        dispatch(addScreen(event.target.value.path))
+        dispatch(addScreen(event.target.value))
         break;
       case "sourcesType":
         dispatch(addSourceType(event.target.value.code))
         break;
       case "sources":
-        dispatch(addSource(event.target.value.code))
+        dispatch(addSource(event.target.value))
         break;
       default:
         break;

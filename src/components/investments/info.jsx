@@ -8,16 +8,16 @@ export const Info = () => {
   return(
     <div>
       <Typography variant="h6" component="h2">
-        Платформа: {links.platform}
+        Платформа: {links.platform.path}
       </Typography>
       <Typography variant="h6" component="h2">
-        Куда перейти: {links.deeplink}
+        Куда перейти: {links.deeplink.title}
       </Typography>
       <Typography variant="h6" component="h2">
-        Экран: {links.screen}
+        Экран: {links.screen.path}
       </Typography>
       <Typography variant="h6" component="h2">
-        Переход: {links.source}
+        Переход: {links.source.code}
       </Typography>
     </div>
   )
