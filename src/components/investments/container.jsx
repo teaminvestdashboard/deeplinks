@@ -1,9 +1,9 @@
 
 import React from 'react'
-import LinkWrap from '../link'
-import { QrCode } from './qr'
+import { LinkWrap } from '../link'
+import { QrCode } from '../qr'
 import { Selection } from './select'
-import { platform as platformArray, sourcesType } from '../../__data__/investments'
+import { platform as platformArray, sourcesType } from '../../__data__/db/investments'
 import { ScreenWrapper } from './screenWrapper'
 import { useSelector } from 'react-redux'
 import { DeeplinkWrapper } from './deeplinkWrapper'
@@ -11,6 +11,7 @@ import { SourcesWrapper } from './sourcesWrapper'
 import { Stack } from '@mui/material'
 import { Info } from './info'
 import { VersionWrapper } from './versionWrapper'
+import { addLinkInvest } from '../../__data__/actions/investments'
 
 export const Container = () => {
   const { platform, version, deeplinkType, deeplink, screen, sourceType, source, link} = useSelector(({investments}) => investments)
@@ -38,7 +39,7 @@ export const Container = () => {
 
   return (
     <div className="container">
-      <LinkWrap preparedPath={path}/>
+      <LinkWrap preparedPath={path} action={addLinkInvest}/>
       <div className="investments-wrapper">
         <Stack spacing={2} direction="row" width="100%" marginBottom="20px">
           <Selection name="Платформа" id="platform-invest" items={platformArray} type="platform"/>

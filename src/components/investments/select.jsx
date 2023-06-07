@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import {useDispatch} from 'react-redux'
-import { addDeeplink, addDeeplinkType } from '../../__data__/actions/deeplinkAction';
-import { addSource, addSourceType, addVersion, addPlatformName } from '../../__data__/actions/investments'
-import { addScreen } from '../../__data__/actions/screenAction';
-import { addPlatform } from '../../__data__/actions/platformAction';
+import { addPlatformInvest, addScreenInvest,addDeeplinkInvest, addDeeplinkTypeInvest, addSourceInvest, addSourceTypeInvest, addVersionInvest, addPlatformNameInvest } from '../../__data__/actions/investments'
 
 
 export const Selection = ({ name, id, items, type, initValue = "" }) => {
@@ -22,24 +19,24 @@ export const Selection = ({ name, id, items, type, initValue = "" }) => {
     setValue(event.target.value);
     switch (type) {
       case "platform":
-        dispatch(addPlatform(event.target.value))
-        dispatch(addPlatformName(event.target.value.name))
+        dispatch(addPlatformInvest(event.target.value))
+        dispatch(addPlatformNameInvest(event.target.value.name))
         break;
       case "deeplink":
-        dispatch(addDeeplink(event.target.value))
-        dispatch(addDeeplinkType(event.target.value.code))
+        dispatch(addDeeplinkInvest(event.target.value))
+        dispatch(addDeeplinkTypeInvest(event.target.value.code))
         break;
       case "versions":
-        dispatch(addVersion(event.target.value))
+        dispatch(addVersionInvest(event.target.value))
         break;
       case "screen":
-        dispatch(addScreen(event.target.value))
+        dispatch(addScreenInvest(event.target.value))
         break;
       case "sourcesType":
-        dispatch(addSourceType(event.target.value.code))
+        dispatch(addSourceTypeInvest(event.target.value.code))
         break;
       case "sources":
-        dispatch(addSource(event.target.value))
+        dispatch(addSourceInvest(event.target.value))
         break;
       default:
         break;

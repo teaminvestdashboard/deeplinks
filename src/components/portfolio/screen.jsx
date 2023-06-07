@@ -1,11 +1,11 @@
 import {useContext, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {screen} from '../__data__'
-import {addScreen} from '../__data__/actions/screenAction'
+import {screen} from '../../__data__/db/portfolio'
+import {addScreen} from '../../__data__/actions/portfolio/screenAction'
 import {FormControl, FormControlLabel, Radio, RadioGroup, Typography} from '@mui/material'
-import SettingsContext from '../Settings'
-import {getTarget} from '../utils'
-import {PRODUCT} from '../constants'
+import SettingsContext from '../../Settings'
+import {getTarget} from '../../utils'
+import {PRODUCT} from '../../constants'
 
 
 const Screen = () => {

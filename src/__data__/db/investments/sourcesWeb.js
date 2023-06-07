@@ -1,4 +1,4 @@
-import { EXTERNAL, INTERNAL } from "../../constants"
+import { EXTERNAL, INTERNAL } from "../../../constants"
 
 export const sourcesWeb = {
   [INTERNAL]: [

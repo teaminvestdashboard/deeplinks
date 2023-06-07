@@ -1,11 +1,11 @@
 import {useCallback, useContext, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {externalSources} from '../__data__'
-import {addExternalSource} from '../__data__/actions/externalSourceAction'
+import {externalSources} from '../../__data__/db/portfolio'
+import {addExternalSource} from '../../__data__/actions/portfolio/externalSourceAction'
 import {FormControl, FormControlLabel, Radio, RadioGroup, TextField, Typography} from '@mui/material'
-import SettingsContext from '../Settings'
-import {getTarget} from '../utils'
-import {PRODUCT} from '../constants'
+import SettingsContext from '../../Settings'
+import {getTarget} from '../../utils'
+import {PRODUCT} from '../../constants'
 
 
 const ExternalSource = () => {

@@ -1,4 +1,4 @@
-import {InitialState} from '../initialState'
+import {InitialState} from '../../db/portfolio/initialState'
 import {
     ADD_DEEPLINK, ADD_DEEPLINK_TYPE,
     ADD_EXTERNAL_SOURCE,
@@ -7,7 +7,7 @@ import {
     ADD_SCREEN,
     ADD_LINK,
     RESET_DATA
-} from '../consts'
+} from '../../consts'
 
 
 const LinksReducer = (state = InitialState, action) => {

@@ -1,10 +1,10 @@
 import {useContext, useState, useEffect} from 'react'
 import {useDispatch} from 'react-redux'
-import {deeplinks} from '../__data__'
-import {addDeeplink, addDeeplinkType} from '../__data__/actions/deeplinkAction'
+import {deeplinks} from '../../__data__/db/portfolio'
+import {addDeeplink, addDeeplinkType} from '../../__data__/actions/portfolio/deeplinkAction'
 import {FormControl, FormControlLabel, Radio, RadioGroup, Typography} from '@mui/material'
-import SettingsContext from '../Settings'
-import {getTarget} from '../utils'
+import SettingsContext from '../../Settings'
+import {getTarget} from '../../utils'
 
 
 const Deeplink = () => {

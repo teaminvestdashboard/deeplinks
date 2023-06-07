@@ -1,4 +1,4 @@
-import {APP, PRODUCT} from "../constants";
+import {APP, PRODUCT} from "../../../constants";
 
 
 export const deeplinks = {

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import InvestmentsReducer from './investments'
-import LinksReducer from './linksReducer'
+import LinksReducer from './portfolio/linksReducer'
 
 
 const rootReducer = combineReducers({

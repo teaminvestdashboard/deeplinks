@@ -1,6 +1,6 @@
-import { ADD_VERSION } from "../../consts";
+import { ADD_VERSION_INVEST } from "../../consts";
 
-export const addVersion = (value) => ({
-    type: ADD_VERSION,
+export const addVersionInvest = (value) => ({
+    type: ADD_VERSION_INVEST,
     data: value
 })

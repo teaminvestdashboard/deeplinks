@@ -1,11 +1,11 @@
-import { ADD_SOURCE, ADD_SOURCE_TYPE } from "../../consts"
+import { ADD_SOURCE_INVEST, ADD_SOURCE_TYPE_INVEST } from "../../consts"
 
-export const addSourceType = (value) => ({
-  type: ADD_SOURCE_TYPE,
+export const addSourceTypeInvest = (value) => ({
+  type: ADD_SOURCE_TYPE_INVEST,
   data: value
 })
 
-export const addSource = (value) => ({
-  type: ADD_SOURCE,
+export const addSourceInvest = (value) => ({
+  type: ADD_SOURCE_INVEST,
   data: value
 })

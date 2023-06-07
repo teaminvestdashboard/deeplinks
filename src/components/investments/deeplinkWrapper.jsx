@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { deeplink as deeplinkArray } from '../../__data__/investments'
+import { deeplink as deeplinkArray } from '../../__data__/db/investments'
 import { compareVersions } from '../utils'
 import { Selection } from './select'
 

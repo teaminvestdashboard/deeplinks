@@ -1,11 +1,11 @@
 import {useContext, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {internalSources} from '../__data__'
-import {addInternalSource} from '../__data__/actions/internalSourceAction'
+import {internalSources} from '../../__data__/db/portfolio'
+import {addInternalSource} from '../../__data__/actions/portfolio/internalSourceAction'
 import {FormControl, FormControlLabel, Radio, RadioGroup, TextField, Typography} from '@mui/material'
-import SettingsContext from '../Settings'
-import {getTarget} from '../utils'
-import {PRODUCT} from '../constants'
+import SettingsContext from '../../Settings'
+import {getTarget} from '../../utils'
+import {PRODUCT} from '../../constants'
 
 
 const InternalSource = () => {

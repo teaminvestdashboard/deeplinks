@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { EXTERNAL, INTERNAL } from '../../constants'
-import { sources, sourcesWeb } from '../../__data__/investments'
+import { sources, sourcesWeb } from '../../__data__/db/investments'
 import { Selection } from './select'
 
 export const SourcesWrapper = () => {

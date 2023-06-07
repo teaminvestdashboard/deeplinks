@@ -1,10 +1,10 @@
 import {useEffect, useState, useContext} from 'react'
 import {useDispatch} from 'react-redux'
-import {platform} from '../__data__'
-import {addPlatform} from '../__data__/actions/platformAction'
+import {platform} from '../../__data__/db/portfolio'
+import {addPlatform} from '../../__data__/actions/portfolio/platformAction'
 import {FormControl, FormControlLabel, Radio, RadioGroup, Typography} from '@mui/material'
-import SettingsContext from '../Settings';
-import { getTarget } from '../utils';
+import SettingsContext from '../../Settings';
+import { getTarget } from '../../utils';
 
 
 const Platform = () => {
