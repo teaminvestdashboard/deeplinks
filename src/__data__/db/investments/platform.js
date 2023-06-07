@@ -18,13 +18,13 @@ export const platform = [
     path: "sberbankonline://",
   },
   {
-    id: 3,
+    id: 4,
     title: "iOS SBOL",
     name: "iOS",
     path: "sbolonline://",
   },
   {
-    id: 4,
+    id: 5,
     title: "web",
     name: "web",
     path: "https://online.sberbank.ru/CSAFront/service.do",
