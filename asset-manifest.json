@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/deeplinks/static/css/main.37340d39.chunk.css",
-    "main.js": "/deeplinks/static/js/main.bc56ee40.chunk.js",
-    "main.js.map": "/deeplinks/static/js/main.bc56ee40.chunk.js.map",
+    "main.js": "/deeplinks/static/js/main.da86db45.chunk.js",
+    "main.js.map": "/deeplinks/static/js/main.da86db45.chunk.js.map",
     "runtime-main.js": "/deeplinks/static/js/runtime-main.15b8b261.js",
     "runtime-main.js.map": "/deeplinks/static/js/runtime-main.15b8b261.js.map",
-    "static/js/2.b39c4914.chunk.js": "/deeplinks/static/js/2.b39c4914.chunk.js",
-    "static/js/2.b39c4914.chunk.js.map": "/deeplinks/static/js/2.b39c4914.chunk.js.map",
+    "static/js/2.00bc9548.chunk.js": "/deeplinks/static/js/2.00bc9548.chunk.js",
+    "static/js/2.00bc9548.chunk.js.map": "/deeplinks/static/js/2.00bc9548.chunk.js.map",
     "static/js/3.4281d6e7.chunk.js": "/deeplinks/static/js/3.4281d6e7.chunk.js",
     "static/js/3.4281d6e7.chunk.js.map": "/deeplinks/static/js/3.4281d6e7.chunk.js.map",
     "index.html": "/deeplinks/index.html",
     "static/css/main.37340d39.chunk.css.map": "/deeplinks/static/css/main.37340d39.chunk.css.map",
-    "static/js/2.b39c4914.chunk.js.LICENSE.txt": "/deeplinks/static/js/2.b39c4914.chunk.js.LICENSE.txt"
+    "static/js/2.00bc9548.chunk.js.LICENSE.txt": "/deeplinks/static/js/2.00bc9548.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.15b8b261.js",
-    "static/js/2.b39c4914.chunk.js",
+    "static/js/2.00bc9548.chunk.js",
     "static/css/main.37340d39.chunk.css",
-    "static/js/main.bc56ee40.chunk.js"
+    "static/js/main.da86db45.chunk.js"
   ]
 }
