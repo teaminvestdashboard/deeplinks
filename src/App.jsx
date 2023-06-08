@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 
 
 import './App.css';
@@ -10,13 +10,13 @@ import Portfolio from './pages/portfolio'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" Component={Main}/>
         <Route path="/portfolio" Component={Portfolio}/>
         <Route path="/investments" Component={Investments}/>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
