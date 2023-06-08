@@ -2,7 +2,7 @@
   "name": "mplace_deeplink",
   "version": "0.2.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://teaminvestdashboard.github.io/deeplinks/",
   "dependencies": {
     "@emotion/react": "~11.7.0",
     "@emotion/styled": "~11.6.0",
