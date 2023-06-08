@@ -1,1 +1,1 @@
-export { compareVersions } from './compareVersions'
+export { compareVersions, compareVersionsFromAndTo } from './compareVersions'

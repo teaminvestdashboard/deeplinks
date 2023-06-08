@@ -14,7 +14,6 @@ export const compareVersions = (availableVersion, itemsVersion) => {
     return true
   }
 
-
   for (let i = 0; i <= availableArray.length; i++) {
     if (Number(availableArray[i]) === Number(itemsArray[i])) {
       continue
@@ -28,4 +27,49 @@ export const compareVersions = (availableVersion, itemsVersion) => {
 
   return 0
 
+}
+
+
+export const compareVersionsFromAndTo = (availableVersionFrom, availableVersionTo, selectedVersion) => {
+  const availableFromArray = availableVersionFrom.split('.')
+  const availableToArray = availableVersionTo.split('.')
+  const selectedArray = selectedVersion.split('.')
+
+  if (availableFromArray.length === 2) {
+    availableFromArray.push("0")
+  }
+
+  if (availableToArray.length === 2) {
+    availableToArray.push("0")
+  }
+
+  if (selectedArray.length === 2) {
+    selectedArray.push("0")
+  }
+
+  if (Number(availableFromArray[0]) === Number(selectedArray[0]) &&
+    Number(availableFromArray[1]) === Number(selectedArray[1]) &&
+    Number(availableFromArray[2]) === Number(selectedArray[2])) {
+    return true
+  }
+
+  if (Number(availableToArray[0]) === Number(selectedArray[0]) &&
+    Number(availableToArray[1]) === Number(selectedArray[1]) &&
+    Number(availableToArray[2]) === Number(selectedArray[2])) {
+    return true
+  }
+
+
+  for (let i = 0; i <= availableFromArray.length; i++) {
+    if (Number(availableFromArray[i]) === Number(selectedArray[i]) || Number(availableToArray[i]) === Number(selectedArray[i])) {
+      continue
+    } else if (Number(availableFromArray[i]) < Number(selectedArray[i]) && Number(availableToArray[i]) > Number(selectedArray[i])) {
+      return true
+    }
+    else {
+      return false
+    }
+  }
+
+  return 0
 }

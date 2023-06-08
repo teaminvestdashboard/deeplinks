@@ -19,6 +19,12 @@ export const platform = [
   },
   {
     id: 4,
+    title: "iOS SBOL",
+    name: "iOS SBOL",
+    path: "sbolonline://",
+  },
+  {
+    id: 5,
     title: "web",
     name: "web",
     path: "https://online.sberbank.ru/CSAFront/service.do",
