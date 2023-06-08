@@ -5,7 +5,7 @@ export const deeplink = [
     title: "Витрина",
     availableVersionFrom: "0.0",
     availableVersionTo: "99.99",
-    platforms: [ "iOS", "Android" ],
+    platforms: [ "iOS", "Android", "iOS SBOL" ],
     path: "pfm/marketplace",
   },
   {
@@ -14,7 +14,7 @@ export const deeplink = [
     title: "Подвитрины",
     availableVersionFrom: "0.0",
     availableVersionTo: "99.99",
-    platforms: [ "iOS", "Android" ],
+    platforms: [ "iOS", "Android", "iOS SBOL" ],
     path: "pfm/marketplace",
   },
   {
@@ -23,7 +23,7 @@ export const deeplink = [
     title: "Сервисы",
     availableVersionFrom: "0.0",
     availableVersionTo: "99.99",
-    platforms: [ "iOS", "Android" ],
+    platforms: [ "iOS", "Android", "iOS SBOL" ],
     path: "",
   },
   {
@@ -32,7 +32,7 @@ export const deeplink = [
     title: "Подборки",
     availableVersionFrom: "0.0",
     availableVersionTo: "99.99",
-    platforms: [ "iOS", "Android" ],
+    platforms: [ "iOS", "Android", "iOS SBOL" ],
     path: "pfm/marketplace",
   },
   {
@@ -50,7 +50,7 @@ export const deeplink = [
     title: "Продукты ПИФ",
     availableVersionFrom: "0.0",
     availableVersionTo: "99.99",
-    platforms: [ "iOS", "Android" ],
+    platforms: [ "iOS", "Android", "iOS SBOL" ],
     path: "welfare/invest-pif/product",
   },
   {
@@ -59,7 +59,7 @@ export const deeplink = [
     title: "Готовые стратегии",
     availableVersionFrom: "0.0",
     availableVersionTo: "99.99",
-    platforms: [ "iOS", "Android" ],
+    platforms: [ "iOS", "Android", "iOS SBOL" ],
     path: "investments/tm/product/card",
   },
   {
@@ -68,7 +68,7 @@ export const deeplink = [
     title: "ЗПИФ",
     availableVersionFrom: "0.0",
     availableVersionTo: "99.99",
-    platforms: [ "iOS", "Android" ],
+    platforms: [ "iOS", "Android", "iOS SBOL" ],
     path: "pfm/marketplace",
   },
   {
@@ -86,7 +86,7 @@ export const deeplink = [
     title: "Продукты ИИС",
     availableVersionFrom: "0.0",
     availableVersionTo: "99.99",
-    platforms: [ "iOS", "Android" ],
+    platforms: [ "iOS", "Android", "iOS SBOL" ],
     path: "investments/tm/product/card",
   },
   {
@@ -95,7 +95,7 @@ export const deeplink = [
     title: "НСЖ",
     availableVersionFrom: "0.0",
     availableVersionTo: "99.99",
-    platforms: [ "iOS", "Android" ],
+    platforms: [ "iOS", "Android", "iOS SBOL" ],
     path: "pfm/marketplace",
   },
   {
@@ -104,7 +104,7 @@ export const deeplink = [
     title: "Другие продукты",
     availableVersionFrom: "0.0",
     availableVersionTo: "99.99",
-    platforms: [ "iOS", "Android" ],
+    platforms: [ "iOS", "Android", "iOS SBOL" ],
     path: "pfm/marketplace",
   },
   {

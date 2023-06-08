@@ -20,7 +20,7 @@ export const platform = [
   {
     id: 4,
     title: "iOS SBOL",
-    name: "iOS",
+    name: "iOS SBOL",
     path: "sbolonline://",
   },
   {

@@ -9,6 +9,20 @@ export const screen = [
         availableVersionFrom: "0.0",
         availableVersionTo: "99.99",
       },
+      {
+        path: "pfm/marketplace?marketPlaceId=allProductsListCatalog",
+        id: 2,
+        title: "Все продукты списком",
+        availableVersionFrom: "0.0",
+        availableVersionTo: "14.5",
+      },
+      {
+        path: "pfm/marketplace?marketPlaceId=allProductsListCatalog",
+        id: 3,
+        title: "Все продукты списком",
+        availableVersionFrom: "14.6",
+        availableVersionTo: "99.99",
+      },
     ]
   },
   {
