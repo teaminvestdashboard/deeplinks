@@ -1,0 +1,7 @@
+export { platform } from './platform'
+export { versions } from './versions'
+export { deeplink } from './deeplink'
+export { screen } from './screen'
+export { sourcesType, sources } from './sources'
+export { screenWeb } from './screenWeb'
+export { sourcesWeb } from './sourcesWeb'

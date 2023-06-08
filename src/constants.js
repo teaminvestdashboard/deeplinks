@@ -8,3 +8,7 @@ export const APP = {
   MOBILE: 'MOBILE',
   WEB: 'WEB',
 }
+
+
+export const INTERNAL = "internal"
+export const EXTERNAL = "external"
