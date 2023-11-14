@@ -36,7 +36,7 @@ export const screen = [
         availableVersionTo: "14.5",
       },
       {
-        path: "pfm/marketplace?marketPlaceId=bondsCatalogRds",
+        path: "pfm/marketplace?marketPlaceId=pifCatalogRds",
         id: 2,
         title: "Витрина ПИФ",
         availableVersionFrom: "14.6",
